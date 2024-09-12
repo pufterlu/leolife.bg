@@ -12,10 +12,7 @@ $header-bg-color-secondary: #00966E !default;
   background-color: $header-bg-color;
 
   @include large {
-    padding-top: 2rem;
-	padding-right: 6rem;
-	padding-bottom: 1rem;
-	padding-left: 6rem;
+    padding: 2rem 6rem;
   }
 
   @include medium {
