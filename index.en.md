@@ -1,4 +1,4 @@
-# LeoLife Bulgaria Official Website
+# Welcome to the website of LeoLife Bulgaria!
 
 [🇧🇬 Към българската версия на сайта 🇧🇬](index.md)
 
