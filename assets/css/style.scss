@@ -41,14 +41,14 @@ h1.project_name {
 
 #logo {
   @include large {
-    width: 400rem;
+    width: 24rem;
   }
 
   @include medium {
-    width: 300rem;
+    width: 18rem;
   }
 
   @include small {
-    width: 200rem;
+    width: 12rem;
   }
 }
