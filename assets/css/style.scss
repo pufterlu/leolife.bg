@@ -24,6 +24,21 @@ $header-bg-color-secondary: #00966E !default;
   }
 }
 
+h1.project_name {
+
+  @include large {
+    margin-top: 0.5rem;
+  }
+
+  @include medium {
+    margin-top: 0.5rem;
+  }
+
+  @include small {
+	margin-top: 0.2rem;
+  }
+}
+
 #logo {
   @include large {
     width: 400rem;
