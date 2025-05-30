@@ -7,6 +7,17 @@ $monochromatic-color: #4EB58C;
 $header-text-color: #FFFFFF;
 $header-bg-color: $main-color !default;
 
+header {
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+  
+}
+
 .page-header {
   color: $header-text-color;
   text-align: center;
