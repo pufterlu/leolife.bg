@@ -1,3 +1,7 @@
+---
+title: Welcome to the website of LeoLife Bulgaria!
+---
+
 # Welcome to the website of LeoLife Bulgaria!
 
 [🇧🇬 Към българската версия на сайта 🇧🇬](index.md)

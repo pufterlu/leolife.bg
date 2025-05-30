@@ -1,16 +1,15 @@
 ---
 ---
 
-$header-bg-color: #00966E !default;
-$header-bg-color-secondary: #00966E !default;
-
-@import "{{ site.theme }}";
+$header-text-color: #FFFFFF;
+$header-bg-color: #007845 !default;
 
 .page-header {
-  color: $header-heading-color;
+  color: $header-text-color;
   text-align: center;
   background-color: $header-bg-color;
 
+  /*
   @include large {
     padding: 1rem 6rem;
   }
@@ -22,10 +21,12 @@ $header-bg-color-secondary: #00966E !default;
   @include small {
     padding: 0.5rem 1rem;
   }
+*/
 }
 
-.project-name {
+.org-name {
 
+  /*
   @include large {
     margin-top: 0.5rem;
   }
@@ -37,9 +38,11 @@ $header-bg-color-secondary: #00966E !default;
   @include small {
 	margin-top: 0.2rem;
   }
+  */
 }
 
 #logo {
+  /*
   @include large {
     width: 24rem;
   }
@@ -51,4 +54,5 @@ $header-bg-color-secondary: #00966E !default;
   @include small {
     width: 12rem;
   }
+  */
 }
