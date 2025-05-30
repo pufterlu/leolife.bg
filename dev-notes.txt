@@ -1,0 +1,8 @@
+For social preview thumbnails later
+	
+	<meta property="og:title" content="{% t site.og.title %}"/>
+    <meta property="og:image" content="{% t site.og.image %}"/>
+    <meta property="og:description" content="{% t site.og.description %}"/>
+    <meta property="og:url" content="{{ site.baseurl }}{% if page.url %}{{ page.url }}{% endif %}"/>
+    <meta property="og:locale" content="{% t site.og.locale %}"/>  
+	
