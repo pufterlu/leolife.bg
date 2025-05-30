@@ -1,8 +1,11 @@
 ---
 ---
 
+$main-color: #007845;
+$monochromatic-color: #4EB58C;
+
 $header-text-color: #FFFFFF;
-$header-bg-color: #007845 !default;
+$header-bg-color: $main-color !default;
 
 .page-header {
   color: $header-text-color;
@@ -24,24 +27,30 @@ $header-bg-color: #007845 !default;
 */
 }
 
-.org-name {
+.page-header .nav-link {
+  color: $header-text-color;
+  font-size: 1.5rem;
+}
 
-  /*
-  @include large {
-    margin-top: 0.5rem;
-  }
+.page-header .nav-link.active {
+  color: $monochromatic-color;
+}
 
-  @include medium {
-    margin-top: 0.5rem;
-  }
-
-  @include small {
-	margin-top: 0.2rem;
-  }
-  */
+/*
+#logoContainer {
+  text-align: center;
+  flex-grow: 0;
+  flex-basis: 30%;
+}
+*/
+#logoLink { 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #logo {
+  height: 8rem;
+  /*min-width: 15rem;*/
   /*
   @include large {
     width: 24rem;
