@@ -7,20 +7,20 @@ language: en
 
 [Introductory text - white background] We need to apply MANY different kinds of pressure on the municipal councillors to get them to pay attention to the street cat crisis and support a municipal mass neutering programme for street cats in Varna. One very important way is to send them emails to tell them to act! Here is how you do it:
 
-[Text body 1 - mint background] **1. Find the names of the councillors from the party you normally vote for**
+## [Text body 1 - mint background] 1. Find the names of the councillors from the party you normally vote for
   - Click here: https://varnacouncil.bg/statut-i-pravomoshtiya/struktura/registar-na-grupite-mandat-2023-2027/?fbclid=IwY2xjawKqeyFleHRuA2FlbQIxMABicmlkETBlWWNDc0ZLOTc3ZUpNSm40AR5rwwtOzQAzVLt1ClnY2FclCFMSGs95aTLZa7bT1dUYPBFQ6ZT9p8a2_YR55A_aem_-bdigEfkUQCHP5Lhe1bxnA 
   - Open the top file displayed
   - Find the party (or parties) you normally vote for, and decide on one or several councillors to contact
 
 [Image 1 - to the right of the text above]
 
-[Text body 2 - white background] **2. Find the email addresses of the councillors you have decided to contact:**
+## [Text body 2 - white background] 2. Find the email addresses of the councillors you have decided to contact:
   - Click here: https://varnacouncil.bg/statut-i-pravomoshtiya/struktura/obshtinski-savetnici-mandat-2023-2027/?fbclid=IwY2xjawKqe0VleHRuA2FlbQIxMABicmlkETBlWWNDc0ZLOTc3ZUpNSm40AR6vuDxph6H767TE4v6QZHFfJQSy4rR-olirde6yEIxtlH8VD8gCdfr_dr2uKQ_aem_62U7BwBhme7USl-jAIteJg
   - Click on the profile of the councillors your want to contact, and copy-paste their email addresses
 
 [Image 2 - to the left of the text above]
 
-[text body 3 - mint background] **3. Write and send a short email - you can include some of the following points:**
+## [text body 3 - mint background] 3. Write and send a short email - you can include some of the following points:
 
 [format as a grid of boxes with handwritten style font text inside]
 
