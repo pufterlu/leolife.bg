@@ -4,7 +4,7 @@
 $main-color: #007845;
 $monochromatic-color: #4EB58C;
 
-$header-text-color: #FFFFFF;
+$header-text-color: white;
 $header-bg-color: $main-color !default;
 
 header {
@@ -38,13 +38,22 @@ header {
 */
 }
 
-.page-header .nav-link {
+.page-header a.nav-link {
   color: $header-text-color;
   font-size: 1.5rem;
+  transition: text-decoration-color 300ms;
+  text-decoration: underline 0.1rem rgba($header-text-color, 0);
 }
 
-.page-header .nav-link.active {
-  color: $monochromatic-color;
+.page-header a.nav-link:hover {
+  text-decoration-color: $header-text-color;
+}
+
+.page-header a.nav-link.active {
+  color: $header-text-color;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
 }
 
 /*
