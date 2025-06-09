@@ -34,7 +34,15 @@
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a href="#" class="nav-link">Solution to the problem</a></li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" aria-current="page">
+                                {% if page.language == "en" %}
+                                Solution to the problem
+                                {% else %}
+                                Решение на проблема
+                                {% endif %}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div id="logoContainer" class="navbar-collapse text-center col-2">
@@ -42,16 +50,32 @@
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a href="#" class="nav-link">Billboard campaign</a></li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" aria-current="page">
+                                {% if page.language == "en" %}
+                                Billboard campaign
+                                {% else %}
+                                Билбордова кампания
+                                {% endif %}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-1">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a href="#" class="nav-link">Donations</a></li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" aria-current="page">
+                                {% if page.language == "en" %}
+                                Donations
+                                {% else %}
+                                Дарения 
+                                {% endif %}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
-                            <span style="color: white;" class="navbar-text mx-auto"><a href="mailto:org@leolife.bg" style="color: white;">org@leolife.bg</a>, <a style="color: white;" href="mailto:camilla@leolife.bg">camilla@leolife.bg</a><span>
+                            <span style="color: white;" class="navbar-text mx-auto"><a href="mailto:org@leolife.bg" style="color: white;">org@leolife.bg</a></span>
                     </div>
                 </div>
             </div>
