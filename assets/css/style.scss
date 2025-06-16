@@ -22,7 +22,8 @@ header {
   color: $header-text-color;
   text-align: center;
   background-color: $header-bg-color;
-
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   /*
   @include large {
     padding: 1rem 6rem;
