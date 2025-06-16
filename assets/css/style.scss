@@ -3,9 +3,16 @@
 
 $main-color: #007845;
 $monochromatic-color: #4EB58C;
+$dark-text-box-background-color: #156082;
 
 $header-text-color: white;
 $header-bg-color: $main-color !default;
+
+.handwritten {
+  font-family: "Bellota", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .page-header {
   color: $header-text-color;
@@ -115,13 +122,54 @@ h1, h2, h3 {
 }
 
 .leading-text {
-   width: 70%;
-   margin-left: auto;
-   margin-right: auto;
-   font-size: 1.6rem;
-   text-align: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.text-container {
+  font-size: 1.2rem;
+}
+
+.subsequent-text-container {
+   margin-top: 2rem;
+}
+
+ul.arrows li.list-group-item::before {
+  content: "⮕ ";
 }
 
 ol.upper-latin li.list-group-item::before {
-    content: counter(section, upper-latin) ". ";
+  content: counter(section, upper-latin) ". ";
+}
+
+.dark-text-box {
+  background-color: $dark-text-box-background-color;
+  border-color: $monochromatic-color;
+  color: white;
+}
+
+.dark-text-box.alt-lg-font {
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.dark-text-box::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.dark-text-box .vcentred {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-rounded-borders {
+  border-radius: 0.5rem;
 }
