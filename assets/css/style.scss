@@ -7,36 +7,21 @@ $monochromatic-color: #4EB58C;
 $header-text-color: white;
 $header-bg-color: $main-color !default;
 
-header {
+.page-header {
+  color: $header-text-color;
+  text-align: center;
+  background-color: $header-bg-color; 
+  
   @media (max-width: 768px) {
     margin-bottom: 1rem;
   }
   
   @media (min-width: 768px) {
     margin-bottom: 1.5rem;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    height: 22vh;
   }
-  
-}
-
-.page-header {
-  color: $header-text-color;
-  text-align: center;
-  background-color: $header-bg-color;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  /*
-  @include large {
-    padding: 1rem 6rem;
-  }
-
-  @include medium {
-    padding: 1rem 3rem;
-  }
-
-  @include small {
-    padding: 0.5rem 1rem;
-  }
-*/
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -50,19 +35,24 @@ header {
 .page-header a.nav-link {
   color: $header-text-color;
   font-size: 1.5rem;
+  /*
   transition: text-decoration-color 300ms;
   text-decoration: underline 0.1rem rgba($header-text-color, 0);
+  */
 }
 
 .page-header a.nav-link:hover {
-  text-decoration-color: $header-text-color;
+  color: $monochromatic-color;
+  /*text-decoration-color: $header-text-color;*/
 }
 
 .page-header a.nav-link.active {
-  color: $header-text-color;
+  color: $monochromatic-color;
   font-weight: bold;
+  /*
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;
+  */
 }
 
 #logoContainer.collapse {
@@ -78,11 +68,6 @@ header {
 
 
 /*navbar-collapse navbarSupportedContent text-center col-2 collapse show*/
-
-#logoLink { 
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #logo {
   height: 8rem;
@@ -108,4 +93,35 @@ header {
 
 h1, h2, h3 {
   text-align: center;
+}
+
+.leading-container {
+  @media (max-width: 768px) {
+    
+  }
+  
+  @media (min-width: 768px) {
+    height: 78vh;
+  }
+}
+
+.leading-heading-container {
+  padding-top: 5vh;
+}
+
+.leading-text-container {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+.leading-text {
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 1.6rem;
+   text-align: center;
+}
+
+ol.upper-latin li.list-group-item::before {
+    content: counter(section, upper-latin) ". ";
 }

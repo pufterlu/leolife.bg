@@ -3,16 +3,40 @@ title: Please help us tell the councillors of Varna that we want a mass neuterin
 language: en
 ---
 
-# [Header - large font, centred, mint background] Please help us tell the councillors of Varna that we want a mass neutering programme for street cats in Varna.
+<!-- [Header - large font, centred, mint background] -->
+<div class="leading-container">
+    <div class="leading-heading-container">
+        <h1 class="leading-heading">Help us tell the councillors that we want a</h1>
+        <h1 class="leading-heading">MASS NEUTERING PROGRAMME</h1>
+        <h1 class="leading-heading">for street cats in Varna.</h1>
+    </div>
 
-[Introductory text - white background] We need to apply MANY different kinds of pressure on the municipal councillors to get them to pay attention to the street cat crisis and support a municipal mass neutering programme for street cats in Varna. One very important way is to send them emails to tell them to act! Here is how you do it:
+    <div class="leading-text-container">
+    <!-- [Introductory text - white background] -->
+    <p class="leading-text">We need to apply MANY different kinds of pressure on the municipal councillors to get them to pay attention to the street cat crisis and support a municipal mass neutering programme for street cats in Varna. One very important way is to send them emails to tell them to act! Here is how you do it:</p>
+    </div>
+</div>
 
-## [Text body 1 - mint background] 1. Find the names of the councillors from the party you normally vote for
-  - Click here: https://varnacouncil.bg/statut-i-pravomoshtiya/struktura/registar-na-grupite-mandat-2023-2027/?fbclid=IwY2xjawKqeyFleHRuA2FlbQIxMABicmlkETBlWWNDc0ZLOTc3ZUpNSm40AR5rwwtOzQAzVLt1ClnY2FclCFMSGs95aTLZa7bT1dUYPBFQ6ZT9p8a2_YR55A_aem_-bdigEfkUQCHP5Lhe1bxnA 
-  - Open the top file displayed
-  - Find the party (or parties) you normally vote for, and decide on one or several councillors to contact
+<div class="container">
+<!-- [Text body 1 - mint background] -->
+    <div class="row">
+        <h2 class="text-start">1. Find the names of the councillors from the party you normally vote for</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <ol class="list-group list-group-numbered list-group-flush upper-latin">
+                <li class="list-group-item"><a target="_blank" rel="noopener noreferrer" href="https://varnacouncil.bg/statut-i-pravomoshtiya/struktura/registar-na-grupite-mandat-2023-2027/">Click here to open the "Регистър на групите" page on the Varna Council website</a></li>
+                <li class="list-group-item">Open the top file displayed (that should be the most recent version)</li>
+                <li class="list-group-item">Find the party (or parties) you normally vote for, and decide on one or several councillors to contact</li>
+            </ol>
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+    </div>
 
 [Image 1 - to the right of the text above]
+</div>
 
 ## [Text body 2 - white background] 2. Find the email addresses of the councillors you have decided to contact:
   - Click here: https://varnacouncil.bg/statut-i-pravomoshtiya/struktura/obshtinski-savetnici-mandat-2023-2027/?fbclid=IwY2xjawKqe0VleHRuA2FlbQIxMABicmlkETBlWWNDc0ZLOTc3ZUpNSm40AR6vuDxph6H767TE4v6QZHFfJQSy4rR-olirde6yEIxtlH8VD8gCdfr_dr2uKQ_aem_62U7BwBhme7USl-jAIteJg
@@ -35,3 +59,4 @@ The vets within Varna Municipality also believe that it is necessary and possibl
 We humans have a responsibility for these animals: cats are NOT wild like seagulls, and the only reason for their extremely concentrated presence in the city is human negligence. 
 
 Cats breed extremely quickly: calculations made by LeoLife Bulgaria show that a single female cat on the street will have 112 offspring in just the span of 3 years. This extremely rapid breeding leads to an exponential growth in cats on the street. 
+</div>
