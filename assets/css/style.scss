@@ -1,15 +1,24 @@
 ---
 ---
 
-$main-color: #007845;
+$main-color: #005431;
 $monochromatic-color: #4EB58C;
 $dark-text-box-background-color: #156082;
 
 $header-text-color: white;
 $header-bg-color: $main-color !default;
 
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
 .handwritten {
-  font-family: "Bellota", system-ui;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
@@ -20,11 +29,10 @@ $header-bg-color: $main-color !default;
   background-color: $header-bg-color; 
   
   @media (max-width: 768px) {
-    margin-bottom: 1rem;
+    
   }
   
   @media (min-width: 768px) {
-    margin-bottom: 1.5rem;
     padding-top: 2vh;
     padding-bottom: 2vh;
     height: 22vh;
@@ -60,6 +68,12 @@ $header-bg-color: $main-color !default;
   text-decoration: underline;
   text-decoration-thickness: 0.1rem;
   */
+}
+
+#logoContainer {
+  @media (min-width: 768px) {
+    margin-right: 3rem;
+  }
 }
 
 #logoContainer.collapse {
@@ -98,11 +112,25 @@ $header-bg-color: $main-color !default;
   min-height: 1.6rem;
 }
 
+#contactUsContainer {
+  @media (max-width: 768px) {
+    padding-bottom: 1rem;
+  }
+}
+
+.social-icon {
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 h1, h2, h3 {
   text-align: center;
 }
 
 .leading-container {
+  background-color: $monochromatic-color;
+  
   @media (max-width: 768px) {
     
   }
@@ -116,6 +144,11 @@ h1, h2, h3 {
   padding-top: 5vh;
 }
 
+.leading-heading {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
 .leading-text-container {
   margin-top: 3rem;
   margin-bottom: 6rem;
@@ -127,14 +160,31 @@ h1, h2, h3 {
   margin-right: auto;
   font-size: 1.6rem;
   text-align: center;
+  background-color: white;
+  padding: 2rem;
+}
+
+.text-start {
+  color: $monochromatic-color;
+  font-weight: 500;
 }
 
 .text-container {
-  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  color: white;
 }
 
-.subsequent-text-container {
-   margin-top: 2rem;
+.text-container.alt-bg {
+  background-color: $monochromatic-color;
+}
+
+ul.dark-list li.list-group-item {
+  color: white;
+  background-color: black;
 }
 
 ul.arrows li.list-group-item::before {
@@ -146,14 +196,14 @@ ol.upper-latin li.list-group-item::before {
 }
 
 .dark-text-box {
-  background-color: $dark-text-box-background-color;
-  border-color: $monochromatic-color;
-  color: white;
+  background-color: $monochromatic-color;
+  border: solid black;
+  font-size: 1.1rem;
 }
 
 .dark-text-box.alt-lg-font {
   @media (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 
