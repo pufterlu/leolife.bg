@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active" aria-current="page">
+                                <a href="#" class="nav-link" aria-current="page">
                                 {% if page.language == "en" %}
                                 Our mission
                                 {% else %}
@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                     <div id="logoContainer" class="navbar-collapse navbarSupportedContent text-center col-2">
-                        <a class="mx-auto" href="/"><img src="/assets/images/logo_v3_White.svg" class="" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
+                        <a class="mx-auto" href="/"><img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
@@ -105,12 +105,22 @@
             {{ content }}
         </div>
 
-        <div class="container">
+        <div class="container-fluid p-0 m-0">
             <footer class="site-footer">
-            <p>Email: <a href="mailto:org@leolife.bg">org@leolife.bg</a>, for queries in English write to our director <a href="mailto:camilla@leolife.bg">camilla@leolife.bg</a></p>
-	    <p>Site under construction, more content on how to help the street cats of Varna coming soon!</p>
-            <p>ЛеоЛайф България е Фондация в обществена полза, вписана в регистъра за ЮЛНЦ с ЕИК 207858224</p>
-            <p>LeoLife Bulgaria is a Foundation for the public benefit, a type of Bulgarian NGO registered in the Bulgarian NGO registry with number 207858224</p>
+                <div id="langMenuContainer" class="custom-rounded-borders">
+                  <button type="button" class="btn">
+                    {% if page.language == "en" %}
+                    <a href="/{{ page.url | split: "/" | slice: 2 | join | split: "." | slice: 0 | join }}">🇧🇬 Български</a>
+                    {% else %}
+                    <a href="/en{{ page.url | split: "." | slice: 0 | join }}">🇬🇧 English</a>
+                    {% endif %}
+                </button>
+                </div>
+
+                <p>Email: <a href="mailto:org@leolife.bg">org@leolife.bg</a>, for queries in English write to our director <a href="mailto:camilla@leolife.bg">camilla@leolife.bg</a></p>
+            <p>Site under construction, more content on how to help the street cats of Varna coming soon!</p>
+                <p>ЛеоЛайф България е Фондация в обществена полза, вписана в регистъра за ЮЛНЦ с ЕИК 207858224</p>
+                <p>LeoLife Bulgaria is a Foundation for the public benefit, a type of Bulgarian NGO registered in the Bulgarian NGO registry with number 207858224</p>
             </footer>
         </div>
     </main>
