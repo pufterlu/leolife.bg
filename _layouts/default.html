@@ -35,8 +35,24 @@
                                 
                                 <div class="subnav-dropdown-content custom-rounded-borders">
                                     <ul class="arrows">
-                                        <li><a href="#">Какво сме свършили до тук</a></li>
-                                        <li><a href="#">Проучване сред ветеринарите</a></li>
+                                        <li>
+                                            <a href="#">
+                                            {% if page.language == "en" %}
+                                            Our work so far
+                                            {% else %}
+                                            Какво сме свършили до тук
+                                            {% endif %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            {% if page.language == "en" %}
+                                            Polling vets
+                                            {% else %}
+                                            Проучване сред ветеринарите
+                                            {% endif %}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 </div>
@@ -48,9 +64,9 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link" aria-current="page">
                                 {% if page.language == "en" %}
-                                Take action
+                                How to help
                                 {% else %}
-                                Направи нещо и ти
+                                Как да помогнеш
                                 {% endif %}
                                 </a>
                             </li>
