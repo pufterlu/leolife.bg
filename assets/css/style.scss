@@ -31,12 +31,20 @@ body {
   color: $header-text-color;
   text-align: center;
   background-color: $header-bg-color; 
-  border-bottom: 0.75rem solid;
-  border-color: $monochromatic-color;
   
   @media (min-width: 768px) {
     height: 22vh;
   }
+}
+
+.monochromatic-thick-top-border {
+  border-top: 0.75rem solid;
+  border-color: $monochromatic-color;
+}
+
+.monochromatic-thick-bottom-border {
+  border-bottom: 0.75rem solid;
+  border-color: $monochromatic-color;
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -164,14 +172,22 @@ body {
 
 /* ===== Page content styles ===== */
 
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.dark-bg {
+  background-color: black;
+  color: white;
+}
+
 h1, h2, h3 {
   text-align: center;
 }
 
 .leading-container {
   background-color: $monochromatic-color;
-  border-bottom: 0.75rem solid;
-  border-color: $monochromatic-color;
   
   @media (min-width: 768px) {
     height: 78vh;
@@ -183,16 +199,39 @@ h1, h2, h3 {
   background-size: cover;
 }
 
+#homepageContent .leading-container {
+  background-image: url("/assets/images/homepage/homepage-img1.jpg");
+  background-size: cover;
+}
+
+#homepageBottomSection {
+  background-image: url("/assets/images/homepage/homepage-img2.jpg");
+  background-size: cover;
+  font-size: 1.5rem;
+}
+
+#homepageBottomSection p {
+  background-color: black;
+}
+
 .leading-heading-container {
   color: black;
   padding-top: 5vh;
+}
+
+#homepageContent .leading-heading-container {
+  @media (min-width: 768px) {
+    padding-top: 5rem;
+  }
 }
 
 .leading-heading {
   font-size: 3rem;
   font-weight: 600;
   background-color: white;
-  width: fit-content;margin-left: auto;margin-right: auto;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
   @media (max-width: 768px) {
@@ -201,9 +240,46 @@ h1, h2, h3 {
   }
 }
 
+.leading-heading.large-font-size {
+  font-size: 3.5rem;
+}
+
+#homepageContent .leading-heading {
+  background-color: $main-color;
+  color: white;  
+}
+
+#homepageCalloutLeadingHeading {
+  font-style: italic;
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) {
+    margin-top: 3rem;
+  }
+}
+
+.leading-heading-container p.smaller-leading-text {
+  text-align: center;
+  color: white;
+  background-color: $main-color;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
 .leading-text-container {
   margin-top: 3rem;
   margin-bottom: 6rem;
+}
+
+#homepageContent .leading-text-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .leading-text {
@@ -223,14 +299,33 @@ h1, h2, h3 {
   }
 }
 
+.dark-bg .leading-text {
+  color: black;
+}
+
+#homepageContent .leading-text {
+  font-size: 2.1rem;
+  @media (max-width: 768px) {
+  }
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+  background-color: black;
+  color: white;
+}
+
+#homepageActionsToHelpContainer {
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+}
+
 .text-start {
   color: $monochromatic-color;
   font-weight: 500;
 }
 
 .text-container {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
   padding-bottom: 1.5rem;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -243,11 +338,42 @@ h1, h2, h3 {
   }
 }
 
+.text-container.more-space-before {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
 .text-container.alt-bg {
   background-color: $monochromatic-color;
 }
 
-ul.dark-list li.list-group-item {
+.text-container.important-point-text {
+  font-size: 2.2rem;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+}
+
+.text-container.white-box {
+  background-color: $monochromatic-color;
+  color: black;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+}
+
+.text-container.white-box ol, .text-container.white-box ul, .text-container.white-box ol li, .text-container.white-box ul li {
+  background-color: $monochromatic-color;
+}
+
+.dark-list li.list-group-item {
   color: white;
   background-color: black;
 }
@@ -262,6 +388,10 @@ ul.arrows li::before {
 
 ol.upper-latin li.list-group-item::before {
   content: counter(section, upper-latin) ". ";
+}
+
+ol.lower-latin li.list-group-item::before {
+  content: counter(section, lower-latin) ". ";
 }
 
 .dark-text-box {
