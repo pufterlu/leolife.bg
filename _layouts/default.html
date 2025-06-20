@@ -32,29 +32,29 @@
                                     Какво правим
                                     {% endif %}
                                     </a>
-                                
-                                <div class="subnav-dropdown-content custom-rounded-borders">
-                                    <ul class="arrows">
-                                        <li>
-                                            <a href="#">
-                                            {% if page.language == "en" %}
-                                            Our work so far
-                                            {% else %}
-                                            Какво сме свършили до тук
-                                            {% endif %}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                            {% if page.language == "en" %}
-                                            Polling vets
-                                            {% else %}
-                                            Проучване сред ветеринарите
-                                            {% endif %}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    
+                                    <div class="subnav-dropdown-content custom-rounded-borders">
+                                        <ul class="arrows">
+                                            <li>
+                                                <a href="#">
+                                                {% if page.language == "en" %}
+                                                Our work so far
+                                                {% else %}
+                                                Какво сме свършили до тук
+                                                {% endif %}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                {% if page.language == "en" %}
+                                                Polling vets
+                                                {% else %}
+                                                Проучване сред ветеринарите
+                                                {% endif %}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -62,18 +62,41 @@
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link" aria-current="page">
-                                {% if page.language == "en" %}
-                                How to help
-                                {% else %}
-                                Как да помогнеш
-                                {% endif %}
-                                </a>
+                                <div class="subnav-dropdown">
+                                    <a href="#" class="nav-link" aria-current="page">
+                                    {% if page.language == "en" %}
+                                    Take action!
+                                    {% else %}
+                                    Как да помогнеш
+                                    {% endif %}
+                                    </a>
+                                    
+                                    <div class="subnav-dropdown-content custom-rounded-borders">
+                                        <ul class="arrows">
+                                            <li>
+                                                {% if page.language == "en" %}
+                                                <a href="{% link en/pishete-na-savetnik.html %}">
+                                                Write to a councillor
+                                                </a>
+                                                {% else %}
+                                                <a href="{% link pishete-na-savetnik.html %}">
+                                                Пиши на съветник
+                                                </a>
+                                                {% endif %}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
                     <div id="logoContainer" class="navbar-collapse navbarSupportedContent text-center col-3">
-                        <a class="mx-auto" href="/"><img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
+                        {% if page.language == "en" %}
+                        <a class="mx-auto" href="/en">
+                        {% else %}
+                        <a class="mx-auto" href="/">
+                        {% endif %}
+                        <img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
@@ -130,7 +153,6 @@
                 </div>
 
                 <p>Email: <a href="mailto:org@leolife.bg">org@leolife.bg</a>, for queries in English write to our director <a href="mailto:camilla@leolife.bg">camilla@leolife.bg</a></p>
-            <p>Site under construction, more content on how to help the street cats of Varna coming soon!</p>
                 <p>ЛеоЛайф България е Фондация в обществена полза, вписана в регистъра за ЮЛНЦ с ЕИК 207858224</p>
                 <p>LeoLife Bulgaria is a Foundation for the public benefit, a type of Bulgarian NGO registered in the Bulgarian NGO registry with number 207858224</p>
             </footer>

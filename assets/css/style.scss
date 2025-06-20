@@ -31,6 +31,8 @@ body {
   color: $header-text-color;
   text-align: center;
   background-color: $header-bg-color; 
+  border-bottom: 0.75rem solid;
+  border-color: $monochromatic-color;
   
   @media (min-width: 768px) {
     height: 22vh;
@@ -55,32 +57,24 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  /*
-  transition: text-decoration-color 300ms;
-  text-decoration: underline 0.1rem rgba($header-text-color, 0);
-  */
 }
 
 .page-header a.nav-link:hover {
   color: $monochromatic-color;
-  /*text-decoration-color: $header-text-color;*/
 }
 
 .page-header a.nav-link.active {
   color: $monochromatic-color;
   font-weight: bold;
-  /*
-  text-decoration: underline;
-  text-decoration-thickness: 0.1rem;
-  */
 }
+
+/* **=== Subnav dropdown on hover ===== */
 
 .subnav-dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .subnav-dropdown-content {
   background-color: $main-color;
   text-align: left;
@@ -101,7 +95,6 @@ body {
   padding: 0;
 }
 
-/* Links inside the dropdown */
 .subnav-dropdown-content a {
   color: $header-text-color;
   text-decoration: none;
@@ -115,11 +108,7 @@ body {
   color: $monochromatic-color;
 }
 
-/* Show the dropdown menu on hover */
 .subnav-dropdown:hover .subnav-dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.subnav-dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 #logoContainer.collapse {
   display: block;
@@ -129,28 +118,8 @@ body {
   display: none;
 }
 
-/* TODO padding-top in desktop view and padding-bottom in mobile view for the nav element */
-
-
-
-/*navbar-collapse navbarSupportedContent text-center col-2 collapse show*/
-
 #logo {
   height: 9.5rem;
-  /*min-width: 15rem;*/
-  /*
-  @include large {
-    width: 24rem;
-  }
-
-  @include medium {
-    width: 18rem;
-  }
-
-  @include small {
-    width: 12rem;
-  }
-  */
 }
 
 .collapsing {
@@ -183,6 +152,16 @@ body {
   }
 }
 
+#langMenuContainer button {
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+
 /* ===== Page content styles ===== */
 
 h1, h2, h3 {
@@ -191,19 +170,35 @@ h1, h2, h3 {
 
 .leading-container {
   background-color: $monochromatic-color;
+  border-bottom: 0.75rem solid;
+  border-color: $monochromatic-color;
   
   @media (min-width: 768px) {
     height: 78vh;
   }
 }
 
+#pisheteNaSavetnikLeadingContainer {
+  background-image: url("/assets/images/write-to-councillors/banner-write-to-councillors-v1.jpg");
+  background-size: cover;
+}
+
 .leading-heading-container {
+  color: black;
   padding-top: 5vh;
 }
 
 .leading-heading {
   font-size: 3rem;
   font-weight: 600;
+  background-color: white;
+  width: fit-content;margin-left: auto;margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @media (max-width: 768px) {
+    width: 80%;
+    font-size: 2rem;
+  }
 }
 
 .leading-text-container {
@@ -212,18 +207,20 @@ h1, h2, h3 {
 }
 
 .leading-text {
-  @media (max-width: 768px) {
-    width: 90%;
-  }
-  @media (min-width: 768px) {
-    width: 70%;
-  }
   margin-left: auto;
   margin-right: auto;
   font-size: 1.6rem;
   text-align: center;
   background-color: white;
   padding: 2rem;
+  @media (max-width: 768px) {
+    width: 90%;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    width: 70%;
+  }
 }
 
 .text-start {
@@ -238,6 +235,12 @@ h1, h2, h3 {
   padding-left: 5rem;
   padding-right: 5rem;
   color: white;
+  @media (max-width: 768px) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 .text-container.alt-bg {
