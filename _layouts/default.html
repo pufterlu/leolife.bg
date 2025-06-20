@@ -17,20 +17,29 @@
     <header class="page-header">
         <nav class="navbar-dark navbar-expand-md">
             <button class="navbar-toggler float-start custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="container">
                 <div class="row">                
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link" aria-current="page">
-                                {% if page.language == "en" %}
-                                Our mission
-                                {% else %}
-                                Нашата мисия
-                                {% endif %}
-                                </a>
+                                <div class="subnav-dropdown">
+                                    <a href="#" class="nav-link" aria-current="page">
+                                    {% if page.language == "en" %}
+                                    Our work
+                                    {% else %}
+                                    Какво правим
+                                    {% endif %}
+                                    </a>
+                                
+                                <div class="subnav-dropdown-content custom-rounded-borders">
+                                    <ul class="arrows">
+                                        <li><a href="#">Какво сме свършили до тук</a></li>
+                                        <li><a href="#">Проучване сред ветеринарите</a></li>
+                                    </ul>
+                                </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -39,31 +48,18 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link" aria-current="page">
                                 {% if page.language == "en" %}
-                                Solution to the problem
+                                Take action
                                 {% else %}
-                                Решение на проблема
+                                Направи нещо и ти
                                 {% endif %}
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div id="logoContainer" class="navbar-collapse navbarSupportedContent text-center col-2">
+                    <div id="logoContainer" class="navbar-collapse navbarSupportedContent text-center col-3">
                         <a class="mx-auto" href="/"><img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
-                        <ul class="navbar-nav nav-underline mx-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" aria-current="page">
-                                {% if page.language == "en" %}
-                                Billboard campaign
-                                {% else %}
-                                Билбордова кампания
-                                {% endif %}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="collapse navbar-collapse navbarSupportedContent col-1">
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
                                 <a href="#" class="nav-link" aria-current="page">

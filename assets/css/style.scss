@@ -32,10 +32,6 @@ body {
   text-align: center;
   background-color: $header-bg-color; 
   
-  @media (max-width: 768px) {
-    
-  }
-  
   @media (min-width: 768px) {
     height: 22vh;
   }
@@ -51,7 +47,14 @@ body {
 
 .page-header a.nav-link {
   color: $header-text-color;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding-bottom: 0; /* required for the subnav menu */
+  @media (max-width: 768px) {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   /*
   transition: text-decoration-color 300ms;
   text-decoration: underline 0.1rem rgba($header-text-color, 0);
@@ -72,11 +75,51 @@ body {
   */
 }
 
-#logoContainer {
+.subnav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.subnav-dropdown-content {
+  background-color: $main-color;
+  text-align: left;
+  width: 20rem;
+  padding: 1rem;
   @media (min-width: 768px) {
-    margin-right: 3rem;
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+  @media (max-width: 768px) {
+    padding-top: 0;
+    padding-bottom: 0.5rem;
   }
 }
+
+.subnav-dropdown-content ul {
+  padding: 0;
+}
+
+/* Links inside the dropdown */
+.subnav-dropdown-content a {
+  color: $header-text-color;
+  text-decoration: none;
+}
+
+.subnav-dropdown-content li:nth-child(n+2) {
+  margin-top: 0.3rem;
+}
+
+.subnav-dropdown-content a:hover, .subnav-dropdown-content li:hover {
+  color: $monochromatic-color;
+}
+
+/* Show the dropdown menu on hover */
+.subnav-dropdown:hover .subnav-dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.subnav-dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 #logoContainer.collapse {
   display: block;
@@ -206,7 +249,11 @@ ul.dark-list li.list-group-item {
   background-color: black;
 }
 
-ul.arrows li.list-group-item::before {
+ul.arrows {
+  list-style: none;
+}
+
+ul.arrows li::before {
   content: "⮕ ";
 }
 
