@@ -186,6 +186,11 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.dark-bg h2 {
+  color: $monochromatic-color;
+  font-weight: 500;
+}
+
 .leading-container {
   background-color: $monochromatic-color;
   
@@ -196,6 +201,11 @@ h1, h2, h3 {
 
 #pisheteNaSavetnikLeadingContainer {
   background-image: url("/assets/images/write-to-councillors/banner-write-to-councillors-v1.jpg");
+  background-size: cover;
+}
+
+#prouchvaneSredVeterinariteLeadingContainer {
+  background-image: url("/assets/images/vet-questionnaire/top1.jpg");
   background-size: cover;
 }
 
@@ -258,17 +268,19 @@ h1, h2, h3 {
   }
 }
 
-.inline-highlight-main-color {
-  background-color: $main-color;
-}
+.inline-highlight-main-color { background-color: $main-color; }
+.inline-highlight-black { background-color: black; }
+.inline-highlight-white { background-color: white; }
 
-.inline-highlight-black {
-  background-color: black;
-}
+.main-color-background { background-color: $main-color; }
+.monochromatic-background { background-color: $monochromatic-color; }
+.white-background { background-color: white; }
+.black-background { background-color: black; }
 
-.inline-highlight-white {
-  background-color: white;
-}
+.main-color-text { color: $main-color; }
+.monochromatic-text { color: $monochromatic-color; }
+.white-text { color: white; }
+.black-text { color: black; }
 
 .leading-heading-container p.smaller-leading-text {
   text-align: center;
@@ -331,11 +343,6 @@ h1, h2, h3 {
 #homepageActionsToHelpContainer {
   font-size: 1.7rem;
   margin-bottom: 2rem;
-}
-
-.text-start {
-  color: $monochromatic-color;
-  font-weight: 500;
 }
 
 .text-container {
@@ -438,13 +445,15 @@ ol.lower-latin li.list-group-item::before {
   content: counter(section, lower-latin) ". ";
 }
 
-.dark-text-box {
-  background-color: $monochromatic-color;
-  border: solid black;
+.dark-text-box {  
   font-size: 1.1rem;
 }
 
-.dark-text-box.alt-lg-font {
+.dark-text-box.with-border {
+  border: solid black;
+}
+
+.dark-text-box.lg-font {
   @media (min-width: 768px) {
     font-size: 1.7rem;
   }
@@ -465,4 +474,91 @@ ol.lower-latin li.list-group-item::before {
 
 .custom-rounded-borders {
   border-radius: 0.5rem;
+}
+
+.vertical-full-width-infographic-style-text h1 {
+  color: white;
+  font-size: 7rem;
+  @media (max-width: 768px) {
+    font-size: 4rem;
+  }
+}
+
+.vertical-full-width-infographic-style-text .heading-container {
+  @media (max-width: 768px) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.vertical-full-width-infographic-style-text .boxes-container {
+  @media (max-width: 768px) {
+    padding-top: 0.5rem;
+    padding-bottom: 3.5rem;
+  }
+  @media (min-width: 768px) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.vertical-full-width-infographic-style-text .box-with-label-above {
+  @media (max-width: 768px) {
+    line-height: 2.75rem;
+    margin-top: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    
+  }
+}
+
+.vertical-full-width-infographic-style-text .box-with-label-above:nth-child(n+2) {
+  @media (max-width: 768px) {
+    
+  }
+  @media (min-width: 768px) {
+    margin-top: 2rem;
+  }
+}
+
+.vertical-full-width-infographic-style-text .box-with-label-above .box-label {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+  @media (min-width: 768px) {
+    width: 65%;
+  }
+}
+
+.white-background .box-label {
+  color: black;
+}
+
+.vertical-full-width-infographic-style-text .data-text {
+  font-size: 3rem;
+  font-weight: 600;
+  vertical-align: middle;
+  @media (max-width: 768px) {
+    line-height: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    
+  }
+}
+
+.vertical-full-width-infographic-style-text .box-with-label-above .dark-text-box {
+  border: 0;
+  text-align: center;
+  @media (max-width: 768px) { width: 80% }
+}
+
+#prouchvaneSredVeterinariteBottomContainer ul li {
+  font-size: 1.5rem;
 }
