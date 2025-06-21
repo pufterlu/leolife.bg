@@ -18,7 +18,7 @@ body {
   font-size: 1.3rem;
 }
 
-.handwritten {
+.serif {
   font-family: "Roboto Slab", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -200,18 +200,9 @@ h1, h2, h3 {
 }
 
 #homepageContent .leading-container {
-  background-image: url("/assets/images/homepage/homepage-img1.jpg");
+  background: rgba(0,0,0,0.3) url("/assets/images/homepage/homepage-img1.jpg");
+  background-blend-mode: darken;
   background-size: cover;
-}
-
-#homepageBottomSection {
-  background-image: url("/assets/images/homepage/homepage-img2.jpg");
-  background-size: cover;
-  font-size: 1.5rem;
-}
-
-#homepageBottomSection p {
-  background-color: black;
 }
 
 .leading-heading-container {
@@ -228,14 +219,13 @@ h1, h2, h3 {
 .leading-heading {
   font-size: 3rem;
   font-weight: 600;
-  background-color: white;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
     font-size: 2rem;
   }
 }
@@ -245,24 +235,44 @@ h1, h2, h3 {
 }
 
 #homepageContent .leading-heading {
-  background-color: $main-color;
   color: white;  
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 }
 
-#homepageCalloutLeadingHeading {
+#homepageContent .leading-heading:nth-child(n+2) {
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
+}
+
+#homepageContent .leading-heading.callout-leading-heading {
   font-style: italic;
   @media (max-width: 768px) {
-    margin-top: 2rem;
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
   }
   @media (min-width: 768px) {
     margin-top: 3rem;
   }
 }
 
+.inline-highlight-main-color {
+  background-color: $main-color;
+}
+
+.inline-highlight-black {
+  background-color: black;
+}
+
+.inline-highlight-white {
+  background-color: white;
+}
+
 .leading-heading-container p.smaller-leading-text {
   text-align: center;
   color: white;
-  background-color: $main-color;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -270,6 +280,10 @@ h1, h2, h3 {
   padding-right: 0.5rem;
   font-size: 1.1rem;
   font-style: italic;
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
 }
 
 .leading-text-container {
@@ -338,6 +352,39 @@ h1, h2, h3 {
   }
 }
 
+#homepageContent .text-container {
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+#homepageBottomSection img.portrait-img-alongside-text-left-aligned {
+  @media (max-width: 768px) {
+    height: 70vh;
+  }
+}
+
+#homepageBottomSection .text-container {
+  background-color: black;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+#homepageActionsToHelpContainer.text-container {
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+
 .text-container.more-space-before {
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -350,11 +397,8 @@ h1, h2, h3 {
 .text-container.important-point-text {
   font-size: 2.2rem;
   font-weight: 600;
-  @media (max-width: 768px) {
-    width: 90%;
-  }
   @media (min-width: 768px) {
-    width: 80%;
+    width: 90%;
   }
 }
 
