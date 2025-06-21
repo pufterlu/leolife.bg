@@ -77,6 +77,13 @@
                                                 <a href="{% link pishi-na-savetnik.html %}">Пиши на съветник</a>
                                                 {% endif %}
                                             </li>
+                                            <li>
+                                                {% if page.language == "en" %}
+                                                <a href="{% link en/tnr-guide-menu.html %}">Get a cat neutered</a>
+                                                {% else %}
+                                                <a href="{% link tnr-guide-menu.html %}">Заведи котка на кастрация</a>
+                                                {% endif %}
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -135,13 +142,13 @@
         <div class="container-fluid p-0 m-0">
             <footer class="site-footer monochromatic-thick-top-border">
                 <div id="langMenuContainer" class="custom-rounded-borders">
-                  <button type="button" class="btn">
-                    {% if page.language == "en" %}
-                    <a href="/{{ page.url | split: "/" | slice: 2 | join | split: "." | slice: 0 | join }}">🇧🇬 Български</a>
-                    {% else %}
-                    <a href="/en{{ page.url | split: "." | slice: 0 | join }}">🇬🇧 English</a>
-                    {% endif %}
-                </button>
+                    <button type="button" class="btn">
+                        {% if page.language == "en" %}
+                        <a href="/{{ page.url | split: "/" | slice: 2 | join | split: "." | slice: 0 | join }}">🇧🇬 Български</a>
+                        {% else %}
+                        <a href="/en{{ page.url | split: "." | slice: 0 | join }}">🇬🇧 English</a>
+                        {% endif %}
+                    </button>
                 </div>
 
                 <p>Email: <a href="mailto:org@leolife.bg">org@leolife.bg</a>, for queries in English write to our director <a href="mailto:camilla@leolife.bg">camilla@leolife.bg</a></p>
