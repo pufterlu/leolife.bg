@@ -461,6 +461,19 @@ ol.lower-latin li.list-group-item::before {
   content: counter(section, lower-latin) ". ";
 }
 
+ol.decimal-parentheses-suffix li.list-group-item::before {
+  content: counter(section, decimal) ") ";
+}
+
+ol.emphasis-list li::before, ul.emphasis-list li::before {
+  font-weight: 600;
+  font-size: 120%;
+}
+
+ol.white-bullets li::before, ul.white-bullets li::before {
+  color: white;
+}
+
 .dark-text-box {  
   font-size: 1.1rem;
 }
