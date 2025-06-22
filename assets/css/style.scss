@@ -418,16 +418,17 @@ h1, h2, h3 {
 #homepageBottomSection img.portrait-img-alongside-text {
   @media (max-width: 768px) {
     height: 70vh;
+    
   }
 }
 
 #homepageBottomSection .text-container {
   background-color: black;
+  font-size: 1.3rem;
   @media (max-width: 768px) {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
   @media (min-width: 768px) {
-    font-size: 1.1rem;
     margin-left: 1rem;
     padding-left: 0;
     padding-right: 0;
