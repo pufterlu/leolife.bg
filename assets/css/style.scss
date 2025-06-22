@@ -352,7 +352,7 @@ h1, h2, h3 {
   color: white;
 }
 
-#homepageActionsToHelpContainer {
+#actionsToHelpContainer {
   font-size: 1.7rem;
   margin-bottom: 2rem;
 }
@@ -425,7 +425,7 @@ h1, h2, h3 {
   }
 }
 
-.text-container.white-box {
+.text-container.monochromatic-box {
   background-color: $monochromatic-color;
   color: black;
   @media (max-width: 768px) {
@@ -436,7 +436,7 @@ h1, h2, h3 {
   }
 }
 
-.text-container.white-box ol, .text-container.white-box ul, .text-container.white-box ol li, .text-container.white-box ul li {
+.text-container.monochromatic-box ol, .text-container.monochromatic-box ul, .text-container.monochromatic-box ol li, .text-container.monochromatic-box ul li {
   background-color: $monochromatic-color;
 }
 
