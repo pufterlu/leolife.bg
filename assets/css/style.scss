@@ -55,7 +55,7 @@ body {
   padding: 1rem;
 }
 
-.page-header a.nav-link {
+.page-header .nav-link {
   color: $header-text-color;
   font-size: 1.7rem;
   font-weight: 500;
@@ -64,14 +64,15 @@ body {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 2.3rem;
   }
 }
 
-.page-header a.nav-link:hover {
+.page-header .nav-link:hover {
   color: $monochromatic-color;
 }
 
-.page-header a.nav-link.active {
+.page-header .nav-link.active {
   color: $monochromatic-color;
   font-weight: bold;
 }
@@ -101,6 +102,9 @@ body {
 
 .subnav-dropdown-content ul {
   padding: 0;
+  @media (max-width: 768px) {
+    padding-left: 3rem;
+  }
 }
 
 .subnav-dropdown-content a {
@@ -136,7 +140,15 @@ body {
 
 #contactUsContainer {
   @media (max-width: 768px) {
+    margin-top: 1rem;
     padding-bottom: 1rem;
+  }
+}
+
+#contactUsSubContainer {
+  @media (max-width: 768px) {
+    width: 50%;
+    border-top: white solid;
   }
 }
 
@@ -229,12 +241,17 @@ h1, h2, h3 {
 
 .leading-heading-container {
   color: black;
-  padding-top: 5vh;
+  @media (max-width: 768px) {
+    padding-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    padding-top: 1rem;
+  }
 }
 
 #homepageContent .leading-heading-container {
   @media (min-width: 768px) {
-    padding-top: 5rem;
+    padding-top: 1.5rem;
   }
 }
 
@@ -252,31 +269,42 @@ h1, h2, h3 {
   }
 }
 
-.leading-heading.large-font-size {
-  font-size: 3.5rem;
+.leading-heading.with-more-top-space, #homepageContent .leading-heading.with-more-top-space:nth-child(n+2) {
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) {
+    margin-top: 1rem;
+  }
+}
+
+.leading-heading.large-font-size, #homepageContent .leading-heading.large-font-size {
+  font-size: 6rem;
 }
 
 #homepageContent .leading-heading {
   color: white;  
+  font-size: 2.2rem;
   @media (max-width: 768px) {
-    font-size: 2.4rem;
+    
   }
 }
 
 #homepageContent .leading-heading:nth-child(n+2) {
   @media (max-width: 768px) {
-    margin-top: 1.5rem;
+    margin-top: 0.75rem;
   }
 }
 
 #homepageContent .leading-heading.callout-leading-heading {
   font-style: italic;
+  margin-top: 1rem;
+  font-size: 2.6rem;
   @media (max-width: 768px) {
-    font-size: 1.8rem;
-    margin-top: 1.5rem;
+    font-size: 2.2rem;
   }
   @media (min-width: 768px) {
-    margin-top: 3rem;
+    
   }
 }
 
@@ -305,7 +333,7 @@ h1, h2, h3 {
   font-size: 1.1rem;
   font-style: italic;
   @media (max-width: 768px) {
-    margin-top: 1.5rem;
+    margin-top: 0.75rem;
     font-size: 1rem;
   }
 }
