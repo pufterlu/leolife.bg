@@ -25,25 +25,15 @@
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
-                                    <a href="#" class="nav-link" aria-current="page">
                                     {% if page.language == "en" %}
-                                    Our work
+                                    <a href="{% link en/kakvo-pravim.html %}" class="nav-link">What we do</a>
                                     {% else %}
-                                    Какво правим
+                                    <a href="{% link kakvo-pravim.html %}" class="nav-link">Какво правим</a>
                                     {% endif %}
                                     </a>
                                     
                                     <div class="subnav-dropdown-content custom-rounded-borders">
                                         <ul class="arrows">
-                                            <li>
-                                                <a href="#">
-                                                {% if page.language == "en" %}
-                                                Our work so far
-                                                {% else %}
-                                                Какво сме свършили до тук
-                                                {% endif %}
-                                                </a>
-                                            </li>
                                             <li>
                                                 {% if page.language == "en" %}
                                                 <a href="{% link en/prouchvane-sred-veterinarite.html %}">Survey of vets</a>
@@ -62,9 +52,9 @@
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
                                     {% if page.language == "en" %}
-                                    <a href="{% link en/kak-da-pomognesh.html %}" class="nav-link" aria-current="page">Take action!</a>
+                                    <a href="{% link en/kak-da-pomognesh.html %}" class="nav-link">Take action!</a>
                                     {% else %}
-                                    <a href="{% link kak-da-pomognesh.html %}" class="nav-link" aria-current="page">Как да помогнеш</a>
+                                    <a href="{% link kak-da-pomognesh.html %}" class="nav-link">Как да помогнеш</a>
                                     {% endif %}
                                     </a>
                                     
@@ -102,9 +92,9 @@
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
                                 {% if page.language == "en" %}
-                                <a href="{% link en/dareniya.html %}" class="nav-link" aria-current="page">Donations</a>
+                                <a href="{% link en/dareniya.html %}" class="nav-link">Donations</a>
                                 {% else %}
-                                <a href="{% link dareniya.html %}" class="nav-link" aria-current="page">Дарения</a>
+                                <a href="{% link dareniya.html %}" class="nav-link">Дарения</a>
                                 {% endif %}
                                 </a>
                             </li>
@@ -139,8 +129,8 @@
             {{ content }}
         </div>
 
-        <div class="container-fluid p-0 m-0">
-            <footer class="site-footer monochromatic-thick-top-border">
+        <div id="footerContainer" class="container-fluid monochromatic-thick-top-border m-0">
+            <footer class="site-footer">
                 <div id="langMenuContainer" class="custom-rounded-borders">
                     <button type="button" class="btn">
                         {% if page.language == "en" %}
@@ -151,9 +141,11 @@
                     </button>
                 </div>
 
-                <p>Email: <a href="mailto:org@leolife.bg">org@leolife.bg</a>, for queries in English write to our director <a href="mailto:camilla@leolife.bg">camilla@leolife.bg</a></p>
+                {% if page.language == "en" %}
+                <p>LeoLife Bulgaria is a Foundation for the public benefit, registered in the Bulgarian NGO registry with number 207858224</p>
+                {% else %}
                 <p>ЛеоЛайф България е Фондация в обществена полза, вписана в регистъра за ЮЛНЦ с ЕИК 207858224</p>
-                <p>LeoLife Bulgaria is a Foundation for the public benefit, a type of Bulgarian NGO registered in the Bulgarian NGO registry with number 207858224</p>
+                {% endif %}
             </footer>
         </div>
     </main>

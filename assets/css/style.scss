@@ -147,6 +147,18 @@ body {
 }
 
 /* ===== Footer styles ===== */
+#footerContainer {
+  text-align: center;
+  background-color: $main-color;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+footer p {
+  color: white;
+}
 
 #langMenuContainer {
   position: fixed;
@@ -210,8 +222,8 @@ h1, h2, h3 {
 }
 
 #homepageContent .leading-container {
-  background: rgba(0,0,0,0.3) url("/assets/images/homepage/homepage-img1.jpg");
-  background-blend-mode: darken;
+  background: rgba(255,255,255,0.3) url("/assets/images/homepage/homepage-img1.jpg");
+  background-blend-mode: lighten;
   background-size: cover;
 }
 
@@ -359,6 +371,10 @@ h1, h2, h3 {
   }
 }
 
+.text-container.lg-font {
+  font-size: 1.7rem;
+}
+
 #homepageContent .text-container {
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -367,7 +383,7 @@ h1, h2, h3 {
   }
 }
 
-#homepageBottomSection img.portrait-img-alongside-text-left-aligned {
+#homepageBottomSection img.portrait-img-alongside-text {
   @media (max-width: 768px) {
     height: 70vh;
   }
@@ -561,4 +577,24 @@ ol.lower-latin li.list-group-item::before {
 
 #prouchvaneSredVeterinariteBottomContainer ul li {
   font-size: 1.5rem;
+}
+
+.verbose-page .text-block {
+  padding-top: 2rem;
+}
+
+.verbose-page {
+  padding-bottom: 2rem;
+}
+
+.verbose-page h2 {
+  font-size: 3rem;
+}
+
+.verbose-page .text-block p {
+  margin-top: 1rem;
+}
+
+.verbose-page .text-block ul, .verbose-page .text-block ol {
+  margin-top: 0.5rem;
 }
