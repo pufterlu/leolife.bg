@@ -51,6 +51,13 @@
                                                 <a href="{% link prouchvane-sred-veterinarite.html %}">Проучване сред ветеринарите</a>
                                                 {% endif %}
                                             </li>
+                                            <li>
+                                                {% if page.language == "en" %}
+                                                <a href="{% link en/za-nas.html %}">About us</a>
+                                                {% else %}
+                                                <a href="{% link za-nas.html %}">За нас</a>
+                                                {% endif %}
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -96,7 +103,7 @@
                         {% else %}
                         <a class="mx-auto" href="/">
                         {% endif %}
-                        <img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"></a>
+                        <img src="/assets/images/New logo v4_White.svg" id="logo" alt="LeoLife Bulgaria Logo - white cat head on green background and the word LeoLife"/></a>
                     </div>
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">

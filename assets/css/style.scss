@@ -598,3 +598,8 @@ ol.lower-latin li.list-group-item::before {
 .verbose-page .text-block ul, .verbose-page .text-block ol {
   margin-top: 0.5rem;
 }
+
+#logoAboutUs {
+  @media (max-width: 768px) { width: 100% }
+  @media (min-width: 768px) { width: 70% }
+}
