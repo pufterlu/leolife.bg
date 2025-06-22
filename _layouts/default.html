@@ -36,14 +36,21 @@
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
                                     {% if page.language == "en" %}
-                                    <a href="{% link en/kakvo-pravim.html %}" class="nav-link">What we do</a>
+                                    <span class="nav-link">What we do</span>
                                     {% else %}
-                                    <a href="{% link kakvo-pravim.html %}" class="nav-link">Какво правим</a>
+                                    <span class="nav-link">Какво правим</span>
                                     {% endif %}
                                     </a>
                                     
                                     <div class="subnav-dropdown-content custom-rounded-borders">
                                         <ul class="arrows">
+                                            <li>
+                                                {% if page.language == "en" %}
+                                                <a href="{% link en/rabota-i-planove.html %}">Our work and plans</a>
+                                                {% else %}
+                                                <a href="{% link rabota-i-planove.html %}">Работа и планове</a>
+                                                {% endif %}
+                                            </li>
                                             <li>
                                                 {% if page.language == "en" %}
                                                 <a href="{% link en/prouchvane-sred-veterinarite.html %}">Survey of vets</a>
@@ -69,19 +76,25 @@
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
                                     {% if page.language == "en" %}
-                                    <a href="{% link en/kak-da-pomognesh.html %}" class="nav-link">Take action!</a>
+                                    <span class="nav-link">Take action!</span>
                                     {% else %}
-                                    <a href="{% link kak-da-pomognesh.html %}" class="nav-link">Как да помогнеш</a>
+                                    <span class="nav-link">Как да помогнеш</span>
                                     {% endif %}
-                                    </a>
                                     
                                     <div class="subnav-dropdown-content custom-rounded-borders">
                                         <ul class="arrows">
                                             <li>
                                                 {% if page.language == "en" %}
-                                                <a href="{% link en/pishi-na-savetnik.html %}">Write to a councillor</a>
+                                                <a href="{% link en/kakvo-zavisi-ot-teb.html %}">What you can do</a>
                                                 {% else %}
-                                                <a href="{% link pishi-na-savetnik.html %}">Пиши на съветник</a>
+                                                <a href="{% link kakvo-zavisi-ot-teb.html %}">Какво зависи от теб</a>
+                                                {% endif %}
+                                            </li>
+                                            <li>
+                                                {% if page.language == "en" %}
+                                                <a href="{% link en/pishete-na-savetnik.html %}">Write to a councillor</a>
+                                                {% else %}
+                                                <a href="{% link pishete-na-savetnik.html %}">Пиши на съветник</a>
                                                 {% endif %}
                                             </li>
                                             <li>
@@ -118,7 +131,7 @@
                         </ul>
                     </div>
                     <div id="contactUsContainer" class="collapse navbar-collapse navbarSupportedContent col-2">
-                        <div class="container-fluid p-0 m-0">
+                        <div id="contactUsSubContainer" class="container-fluid p-0 mx-auto">
                             <div class="row p-0 g-0">
                                 <div class="col-12 p-0 g-0">
                                     <span style="color: white;" class="navbar-text mx-auto"><a href="mailto:org@leolife.bg" style="color: white;">org@leolife.bg</a></span>
