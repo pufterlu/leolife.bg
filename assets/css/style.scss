@@ -25,6 +25,22 @@ body {
   font-style: normal;
 }
 
+/* ===== Petition banner styles ===== */
+
+#petitionBannerContainer {
+  background-color: black;
+  color: white;
+  height: 7vh;
+  @media (max-width: 768px) {
+    
+  }
+  @media (min-width: 768px) {
+    
+  }
+}
+
+#petitionBannerContainer a { color: $monochromatic-color; }
+
 /* ===== Header and nav menu styles ===== */
 
 .page-header {
@@ -33,7 +49,7 @@ body {
   background-color: $header-bg-color; 
   
   @media (min-width: 768px) {
-    height: 22vh;
+    height: 29vh;
   }
 }
 
@@ -50,7 +66,7 @@ body {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   position: absolute;
-  top: 1rem;
+  top: 10vh;
   left: 1rem;
   padding: 1rem;
 }
@@ -87,23 +103,26 @@ body {
 .subnav-dropdown-content {
   background-color: $main-color;
   text-align: left;
-  width: 20rem;
   padding: 1rem;
-  @media (min-width: 768px) {
-    display: none;
-    position: absolute;
-    z-index: 1;
-  }
+  width: 20rem;
   @media (max-width: 768px) {
     padding-top: 0;
     padding-bottom: 0.5rem;
+    
+  }
+  @media (min-width: 768px) {
+    
+    display: none;
+    position: absolute;
+    z-index: 1;
   }
 }
 
 .subnav-dropdown-content ul {
   padding: 0;
+  list-style-type: none;
   @media (max-width: 768px) {
-    padding-left: 3rem;
+    padding-left: 2.3rem;
   }
 }
 
@@ -219,7 +238,7 @@ h1, h2, h3 {
   background-color: $monochromatic-color;
   
   @media (min-width: 768px) {
-    height: 78vh;
+    height: 71vh;
   }
 }
 
@@ -299,7 +318,7 @@ h1, h2, h3 {
 #homepageContent .leading-heading.callout-leading-heading {
   font-style: italic;
   margin-top: 1rem;
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   @media (max-width: 768px) {
     font-size: 2.2rem;
   }
@@ -383,6 +402,10 @@ h1, h2, h3 {
 #actionsToHelpContainer {
   font-size: 1.7rem;
   margin-bottom: 2rem;
+}
+
+#actionsToHelpContainer p {
+  line-height: 100%;
 }
 
 .text-container {
@@ -507,6 +530,10 @@ ol.white-bullets li::before, ul.white-bullets li::before {
   color: white;
 }
 
+ol.emphasis-list li, ul.emphasis-list li {
+  line-height: 110%;
+}
+
 .dark-text-box {  
   font-size: 1.1rem;
 }
@@ -589,7 +616,8 @@ ol.white-bullets li::before, ul.white-bullets li::before {
 
 .vertical-full-width-infographic-style-text .box-with-label-above .box-label {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.1rem;
+  line-height: 2.4rem;
   font-weight: 600;
   @media (max-width: 768px) {
     width: 80%;
@@ -603,11 +631,16 @@ ol.white-bullets li::before, ul.white-bullets li::before {
   color: black;
 }
 
+.vertical-full-width-infographic-style-text .data-text-container {
+  margin-top: 0.5rem;
+}
+
 .vertical-full-width-infographic-style-text .data-text {
   font-size: 3rem;
   font-weight: 600;
   vertical-align: middle;
   @media (max-width: 768px) {
+    font-size: 2.5rem;
     line-height: 2.5rem;
   }
   @media (min-width: 768px) {

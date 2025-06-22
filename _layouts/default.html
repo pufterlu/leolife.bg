@@ -25,6 +25,14 @@
   </head>
   <body>
     <header class="page-header monochromatic-thick-bottom-border">
+        <div id="petitionBannerContainer" class="container-fluid p-2 m-0 text-center">
+            {% if page.language == "en" %}
+            <a href="https://www.openpetition.eu/bg/petition/online/masova-obsinska-kastracia-na-ulicnite-kotki-vv-varna-za-edin-po-dobr-grad-za-horata-i-za-kotkite" target="_blank">Sign our petition</a><span class="d-none d-md-inline"> for a municipal mass neutering programme for the street cats in Varna!</span>
+            {% else %}
+            <a href="https://www.openpetition.eu/bg/petition/online/masova-obsinska-kastracia-na-ulicnite-kotki-vv-varna-za-edin-po-dobr-grad-za-horata-i-za-kotkite" target="_blank">Подпишете петицията ни</a><span class="d-none d-md-inline"> за общинска програма за масова кастрация на уличните котки във Варна!</span>
+            {% endif %}
+        </div>
+
         <nav class="navbar-dark navbar-expand-md">
             <button class="navbar-toggler float-start custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,14 +44,14 @@
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
                                     {% if page.language == "en" %}
-                                    <span class="nav-link">What we do</span>
+                                    <span class="nav-link">What&nbsp;we&nbsp;do</span>
                                     {% else %}
-                                    <span class="nav-link">Какво правим</span>
+                                    <span class="nav-link">Какво&nbsp;правим</span>
                                     {% endif %}
                                     </a>
                                     
                                     <div class="subnav-dropdown-content custom-rounded-borders">
-                                        <ul class="arrows">
+                                        <ul>
                                             <li>
                                                 {% if page.language == "en" %}
                                                 <a href="{% link en/rabota-i-planove.html %}">Our work and plans</a>
@@ -76,13 +84,13 @@
                             <li class="nav-item">
                                 <div class="subnav-dropdown">
                                     {% if page.language == "en" %}
-                                    <span class="nav-link">Take action!</span>
+                                    <span class="nav-link">Take&nbsp;action!</span>
                                     {% else %}
-                                    <span class="nav-link">Как да помогнеш</span>
+                                    <span class="nav-link">Как&nbsp;да&nbsp;помогнеш</span>
                                     {% endif %}
                                     
                                     <div class="subnav-dropdown-content custom-rounded-borders">
-                                        <ul class="arrows">
+                                        <ul>
                                             <li>
                                                 {% if page.language == "en" %}
                                                 <a href="{% link en/kakvo-zavisi-ot-teb.html %}">What you can do</a>
