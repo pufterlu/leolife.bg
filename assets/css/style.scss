@@ -253,6 +253,12 @@ h1, h2, h3 {
   background-size: cover;
 }
 
+#summerCampaign2025LeadingContainer {
+  background: rgba(0,0,0,0.2) url("/assets/images/2025-summer-campaign/SummerCampaign_banner.jpeg");
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
 #homepageContent .leading-container {
   background: rgba(255,255,255,0.3) url("/assets/images/homepage/homepage-img1.jpg");
   background-blend-mode: lighten;
@@ -272,6 +278,12 @@ h1, h2, h3 {
 #homepageContent .leading-heading-container {
   @media (min-width: 768px) {
     padding-top: 1.5rem;
+  }
+}
+
+#summerCampaign2025LeadingContainer .leading-heading-container {
+  @media (min-width: 768px) {
+    padding-top: 3rem;
   }
 }
 
@@ -310,6 +322,15 @@ h1, h2, h3 {
   }
 }
 
+#summerCampaign2025LeadingContainer .leading-heading {
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 4rem;    
+  }
+}
+
 #homepageContent .leading-heading:nth-child(n+2) {
   @media (max-width: 768px) {
     margin-top: 0.75rem;
@@ -331,6 +352,12 @@ h1, h2, h3 {
 .inline-highlight-main-color { background-color: $main-color; }
 .inline-highlight-black { background-color: black; }
 .inline-highlight-white { background-color: white; }
+
+#summerCampaign2025LeadingContainer .leading-heading .inline-highlight-white {
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
+}
 
 .main-color-background { background-color: $main-color; }
 .monochromatic-background { background-color: $monochromatic-color; }
@@ -397,6 +424,12 @@ h1, h2, h3 {
   }
   background-color: black;
   color: white;
+}
+
+#summerCampaign2025LeadingContainer .leading-text {
+  @media (min-width: 768px) {
+    margin-top: 8rem;
+  }
 }
 
 #actionsToHelpContainer {
@@ -479,6 +512,15 @@ h1, h2, h3 {
   @media (min-width: 768px) {
     width: 90%;
   }
+}
+
+.text-container.important-point-text.pseudo-bullets {
+  font-size: 2rem;
+}
+
+.text-container.important-point-text h2 {
+  font-size: 3rem;
+  font-weight: 600;
 }
 
 .text-container.monochromatic-box {
