@@ -61,6 +61,13 @@
                                             </li>
                                             <li>
                                                 {% if page.language == "en" %}
+                                                <a href="{% link en/2025-summer-campaign.html %}">2025 Summer Campaign</a>
+                                                {% else %}
+                                                <a href="{% link 2025-summer-campaign.html %}">2025 Лятна Кампания</a>
+                                                {% endif %}
+                                            </li>
+                                            <li>
+                                                {% if page.language == "en" %}
                                                 <a href="{% link en/prouchvane-sred-veterinarite.html %}">Survey of vets</a>
                                                 {% else %}
                                                 <a href="{% link prouchvane-sred-veterinarite.html %}">Проучване сред ветеринарите</a>
