@@ -515,12 +515,22 @@ h1, h2, h3 {
 }
 
 .text-container.important-point-text.pseudo-bullets {
-  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
 }
 
 .text-container.important-point-text h2 {
-  font-size: 3rem;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
 }
 
 .text-container.monochromatic-box {
