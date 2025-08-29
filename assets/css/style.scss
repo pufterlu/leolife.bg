@@ -8,14 +8,17 @@ $dark-text-box-background-color: #156082;
 $header-text-color: white;
 $header-bg-color: $main-color !default;
 
+$default-font-size: 1.3rem;
+$default-font-weight: 400;
+
 /* ===== General styles ===== */
 
 body {
   font-family: "Roboto Condensed", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: $default-font-weight;
   font-style: normal;
-  font-size: 1.3rem;
+  font-size: $default-font-size;
   background-color: $main-color;
 }
 
@@ -549,7 +552,7 @@ h1, h2, h3 {
   background-color: $monochromatic-color;
 }
 
-.dark-list li.list-group-item {
+.dark-list > li.list-group-item {
   color: white;
   background-color: black;
 }
@@ -558,33 +561,55 @@ ul.arrows {
   list-style: none;
 }
 
-ul.arrows li::before {
+ul.arrows > li::before {
   content: "⮕ ";
 }
 
-ol.upper-latin li.list-group-item::before {
+ol.upper-latin > li.list-group-item::before {
   content: counter(section, upper-latin) ". ";
 }
 
-ol.lower-latin li.list-group-item::before {
+ol.lower-latin > li.list-group-item::before {
   content: counter(section, lower-latin) ". ";
 }
 
-ol.decimal-parentheses-suffix li.list-group-item::before {
+ol.decimal-parentheses-suffix > li.list-group-item::before {
   content: counter(section, decimal) ") ";
 }
 
-ol.emphasis-list li::before, ul.emphasis-list li::before {
+ol.emphasis-list > li::before, ul.emphasis-list > li::before {
   font-weight: 600;
   font-size: 120%;
 }
 
-ol.white-bullets li::before, ul.white-bullets li::before {
+ol.white-bullets > li::before, ul.white-bullets > li::before {
   color: white;
 }
 
-ol.emphasis-list li, ul.emphasis-list li {
+ol.emphasis-list > li, ul.emphasis-list > li {
   line-height: 110%;
+}
+
+ul.big-list-items > li, ol.big-list-items > li {
+  font-size: 1.9rem;
+}
+
+ul.bold-list-items > li, ol.bold-list-items > li {
+  font-weight: 600;
+}
+
+ul.nested > li, ol.nested > li {
+  font-size: $default-font-size;
+  font-weight: $default-font-weight;
+}
+
+ol.borderless > li, ul.borderless > li {
+  border: 0;
+}
+
+ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .dark-text-box {  
