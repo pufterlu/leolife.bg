@@ -263,6 +263,12 @@ h1, h2, h3 {
   background-size: cover;
 }
 
+#peticiyaLeadingContainer {
+  background: rgba(0,0,0,0.2) url("/assets/images/peticiya/PetitionLanding_v2.jpg");
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
 #homepageContent .leading-container {
   background: rgba(255,255,255,0.3) url("/assets/images/homepage/homepage-img1.jpg");
   background-blend-mode: lighten;
@@ -285,7 +291,8 @@ h1, h2, h3 {
   }
 }
 
-#summerCampaign2025LeadingContainer .leading-heading-container {
+#summerCampaign2025LeadingContainer .leading-heading-container,
+#peticiyaLeadingContainer .leading-heading-container {
   @media (min-width: 768px) {
     padding-top: 2rem;
   }
@@ -326,7 +333,8 @@ h1, h2, h3 {
   }
 }
 
-#summerCampaign2025LeadingContainer .leading-heading {
+#summerCampaign2025LeadingContainer .leading-heading,
+#peticiyaLeadingContainer .leading-heading {
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
@@ -357,7 +365,8 @@ h1, h2, h3 {
 .inline-highlight-black { background-color: black; }
 .inline-highlight-white { background-color: white; }
 
-#summerCampaign2025LeadingContainer .leading-heading .inline-highlight-white {
+#summerCampaign2025LeadingContainer .leading-heading .inline-highlight-white,
+#peticiyaLeadingContainer .leading-heading .inline-highlight-white {
   @media (min-width: 768px) {
     padding: 1rem;
   }
@@ -430,7 +439,8 @@ h1, h2, h3 {
   color: white;
 }
 
-#summerCampaign2025LeadingContainer .leading-text {
+#summerCampaign2025LeadingContainer .leading-text,
+#peticiyaLeadingContainer .leading-text {
   @media (min-width: 768px) {
     margin-top: 3rem;
   }

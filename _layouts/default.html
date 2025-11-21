@@ -100,6 +100,13 @@
                                         <ul>
                                             <li>
                                                 {% if page.language == "en" %}
+                                                <a href="{% link en/peticiya.html %}">Sign our petition!</a>
+                                                {% else %}
+                                                <a href="{% link peticiya.html %}">Подпиши петицията ни!</a>
+                                                {% endif %}
+                                            </li>
+                                            <li>
+                                                {% if page.language == "en" %}
                                                 <a href="{% link en/kakvo-zavisi-ot-teb.html %}">What you can do</a>
                                                 {% else %}
                                                 <a href="{% link kakvo-zavisi-ot-teb.html %}">Какво зависи от теб</a>
