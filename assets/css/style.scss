@@ -772,8 +772,8 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
 }
 
 .leading-container .photo-credit {
-  @media (max-width: 768px) {  }
-  @media (min-width: 768px) { margin-top: -1rem; }
+  @media (max-width: 768px) { }
+  @media (min-width: 768px) { margin-top: -1rem; position: absolute; bottom: 1rem; }
   
   margin-left: 1rem;
 }
