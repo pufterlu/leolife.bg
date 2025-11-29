@@ -11,6 +11,12 @@
     <meta name="apple-mobile-web-app-title" content="LeoLife" />
     <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
     <!-- end favicon block -->
+    <!-- external redirect, if specified by a particular page -->
+    {% if page.redirect_url %}
+    <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}" />
+    <link rel="canonical" href="{{ page.redirect_url }}">
+    {% endif %}
+    <!-- end external redirect block -->
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
