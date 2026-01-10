@@ -269,6 +269,11 @@ h1, h2, h3 {
   background-size: cover;
 }
 
+#nashitePrebroyavaniyaLeadingContainer {
+  background-image: url("/assets/images/nashite-prebroyavaniya/top1.jpg");
+  background-size: cover;
+}
+
 #homepageContent .leading-container {
   background: rgba(255,255,255,0.3) url("/assets/images/homepage/homepage-img1.jpg");
   background-blend-mode: lighten;
@@ -422,6 +427,11 @@ h1, h2, h3 {
   @media (min-width: 768px) {
     width: 70%;
   }
+}
+
+.leading-text-container .leading-text:nth-child(n+2) {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .dark-bg .leading-text {
@@ -703,10 +713,14 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
 }
 
 .vertical-full-width-infographic-style-text .box-with-label-above .box-label {
-  text-align: center;
   font-size: 2.1rem;
   line-height: 2.4rem;
   font-weight: 600;
+}
+
+.vertical-full-width-infographic-style-text .box-with-label-above .box-label, .vertical-full-width-infographic-style-text .box-with-clarification-below .box-clarification {
+  text-align: center;
+  
   @media (max-width: 768px) {
     width: 80%;
   }
@@ -715,7 +729,7 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
   }
 }
 
-.white-background .box-label {
+.white-background .box-label, .white-background .box-clarification {
   color: black;
 }
 
