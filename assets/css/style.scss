@@ -242,6 +242,12 @@ h1, h2, h3 {
   font-size: 0.75em;  /* inspired by Bootstrap's .small class which is 0.875em */
 }
 
+.smaller-only-on-mobile {
+  @media (max-width: 768px) {
+    font-size: 0.75em;
+  }
+}
+
 .bigger {
   font-size: 1.5em;
 }
