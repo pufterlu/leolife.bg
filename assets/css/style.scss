@@ -238,6 +238,10 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
+.smaller {
+  font-size: 0.75em;  /* inspired by Bootstrap's .small class which is 0.875em */
+}
+
 .leading-container {
   background-color: $monochromatic-color;
   padding-bottom: 2rem;
@@ -720,7 +724,7 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
 
 .vertical-full-width-infographic-style-text .box-with-label-above .box-label, .vertical-full-width-infographic-style-text .box-with-clarification-below .box-clarification {
   text-align: center;
-  
+
   @media (max-width: 768px) {
     width: 80%;
   }
