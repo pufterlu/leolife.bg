@@ -242,6 +242,10 @@ h1, h2, h3 {
   font-size: 0.75em;  /* inspired by Bootstrap's .small class which is 0.875em */
 }
 
+.bigger {
+  font-size: 1.5em;
+}
+
 .leading-container {
   background-color: $monochromatic-color;
   padding-bottom: 2rem;
@@ -672,6 +676,13 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
   font-size: 7rem;
   @media (max-width: 768px) {
     font-size: 4rem;
+  }
+}
+
+.vertical-full-width-infographic-style-text h1.smaller {
+  font-size: 5rem;
+  @media (max-width: 768px) {
+    font-size: 3rem;
   }
 }
 
