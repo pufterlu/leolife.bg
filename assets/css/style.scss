@@ -823,9 +823,22 @@ ol.list-group-even-more-flush > li, ul.list-group-even-more-flush > li {
 
 #nashitePrebroyavaniyaLeadingContainer .leading-text {
   font-size: 1.3rem;
+  padding: 1.5rem;
+  padding-bottom: 0;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
+}
+
+#nashitePrebroyavaniyaLeadingContainer .leading-text-container .leading-text:nth-child(n+2) {
+  padding-top: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0;
+}
+
+#nashitePrebroyavaniyaLeadingContainer .leading-text-container .leading-text:last-child {
+  padding-bottom: 1.5rem;
 }
 
 .kamen-photo-container .photo-credit-label {
