@@ -470,6 +470,13 @@ h1, h2, h3 {
   }
 }
 
+#summerCampaign2025LeadingContainer .leading-text {
+  @media (min-width: 768px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 #actionsToHelpContainer {
   font-size: 1.7rem;
   margin-bottom: 2rem;
