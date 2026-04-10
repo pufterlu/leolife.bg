@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1a0f">
+  <title>LeoLife Bulgaria — Design 1: Data Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inter+Tight:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-900: #0a1a0f;
+      --green-800: #0d2b17;
+      --green-700: #0f4024;
+      --green-600: #005431;
+      --green-500: #00794a;
+      --green-400: #00a363;
+      --green-300: #4EB58C;
+      --green-200: #86d4b4;
+      --green-100: #c2ead9;
+      --green-50:  #eaf7f2;
+      --white: #ffffff;
+      --near-white: #f8fafb;
+      --text-muted: #6b7a72;
+      --border: rgba(78,181,140,0.2);
+      --glass-bg: rgba(255,255,255,0.04);
+      --glass-border: rgba(78,181,140,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--green-900);
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Accessibility ===== */
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--green-300); color: var(--green-900);
+      padding: 0.5rem 1rem; border-radius: 0 0 0.5rem 0.5rem;
+      font-weight: 600; z-index: 1000; text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    *:focus-visible {
+      outline: 2px solid var(--green-300);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ===== Petition Banner ===== */
+    .petition-banner {
+      background: linear-gradient(90deg, var(--green-700), var(--green-600));
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--green-500);
+    }
+    .petition-banner a {
+      color: var(--green-200);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .petition-banner a:hover { color: var(--white); }
+
+    /* ===== Header / Nav ===== */
+    header {
+      background: rgba(10,26,15,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--green-600);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .nav-logo-text {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.4rem;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--white);
+      background: var(--glass-bg);
+    }
+
+    .nav-cta {
+      background: var(--green-600);
+      color: var(--white) !important;
+      border-radius: 0.4rem;
+      padding: 0.5rem 1rem !important;
+      font-weight: 600 !important;
+      transition: background 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--green-500) !important; }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 2rem;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,84,49,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 80% 20%, rgba(0,121,74,0.2) 0%, transparent 50%),
+        linear-gradient(180deg, var(--green-900) 0%, #050d07 100%);
+    }
+
+    .hero-grid-overlay {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(78,181,140,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78,181,140,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(78,181,140,0.12);
+      border: 1px solid var(--green-300);
+      color: var(--green-300);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .accent { color: var(--green-300); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.65);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      text-wrap: pretty;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green-400);
+      color: var(--green-900);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary:hover { background: var(--green-300); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--green-300);
+      background: var(--glass-bg);
+    }
+
+    /* ===== Stats Strip ===== */
+    .stats-strip {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 3rem 2rem;
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {}
+    .stat-number {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.03em;
+      color: var(--green-300);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .stat-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-400);
+      font-size: 2rem;
+    }
+
+    /* ===== Section styles ===== */
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-300);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      text-wrap: balance;
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* ===== Crisis Section ===== */
+    .crisis-section {
+      background: var(--green-800);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .crisis-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .crisis-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .crisis-visual {
+      position: relative;
+    }
+
+    .crisis-chart {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .chart-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .chart-bar-group { margin-bottom: 1.5rem; }
+    .chart-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .chart-bar-track {
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      height: 12px;
+      overflow: hidden;
+    }
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--green-600), var(--green-300));
+      transition: width 1s ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .chart-bar-fill { transition: none; }
+    }
+
+    /* ===== Action Cards ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card:hover {
+      border-color: var(--green-400);
+      background: rgba(78,181,140,0.06);
+      transform: translateY(-2px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card:hover { transform: none; }
+    }
+
+    .card-icon {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-300);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: auto;
+    }
+
+    /* ===== Law section ===== */
+    .law-section {
+      background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%);
+    }
+
+    .callout-box {
+      background: rgba(78,181,140,0.08);
+      border: 1px solid var(--green-300);
+      border-radius: 1rem;
+      padding: 2rem 2.5rem;
+      max-width: 800px;
+      margin: 2rem auto 0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .callout-box strong { color: var(--green-300); }
+
+    /* ===== Progress Section ===== */
+    .progress-timeline {
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 1.5rem;
+      top: 2.5rem;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--green-400), transparent);
+    }
+    .timeline-item:last-child::before { display: none; }
+
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 3rem; height: 3rem;
+      border-radius: 50%;
+      background: var(--green-600);
+      border: 2px solid var(--green-400);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      z-index: 1;
+    }
+
+    .timeline-content { padding-top: 0.25rem; }
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--green-300);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .timeline-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin: 0.25rem 0;
+    }
+    .timeline-body {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--green-800);
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    .footer-brand { }
+    .footer-brand h3 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .footer-links h4 {
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.75rem;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links li + li { margin-top: 0.4rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--green-300); }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .social-btn {
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 0.4rem;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .social-btn:hover {
+      background: var(--green-600);
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .design-label {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(0,0,0,0.8);
+      color: var(--green-300);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--glass-border);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="design-label">Design 1 — Data Impact</div>
+
+  <!-- Petition Banner -->
+  <div role="banner" aria-label="Petition notice">
+    <div class="petition-banner">
+      <a href="https://www.openpetition.eu/bg/petition/online/masova-obsinska-kastracia-na-ulicnite-kotki-vv-varna-za-edin-po-dobr-grad-za-horata-i-za-kotkite" target="_blank" rel="noopener noreferrer">Sign our petition</a>
+      for a municipal mass neutering programme for the street cats in Varna!
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon" aria-hidden="true">🐱</div>
+        <span class="nav-logo-text">LeoLife Bulgaria</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#">About&nbsp;us</a></li>
+        <li><a href="#">Take&nbsp;action!</a></li>
+        <li><a href="#">Donations</a></li>
+        <li><a href="#" class="nav-cta">Sign Petition</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-badge" aria-label="Crisis alert">
+          🔴&nbsp; Street Cat Crisis in Varna
+        </div>
+        <h1 class="hero-title" id="hero-heading">
+          From <span class="accent">2,008</span> to <span class="accent">23,053</span><br>street cats in 8 years
+        </h1>
+        <p class="hero-subtitle">
+          Varna's street cat population grows by 85% every 2 years. We need a municipal mass neutering programme — now.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary">Sign the Petition →</a>
+          <a href="#" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="stats-strip" aria-label="Key statistics">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2,008</div>
+          <div class="stat-label">Street cats in Varna — 2016</div>
+        </div>
+        <div class="stat-divider" aria-label="grew to">→</div>
+        <div class="stat-item">
+          <div class="stat-number">23,053</div>
+          <div class="stat-label">Street cats in Varna — 2024</div>
+        </div>
+        <div class="stat-divider" aria-label="growth rate">≈</div>
+        <div class="stat-item">
+          <div class="stat-number">+85%</div>
+          <div class="stat-label">Population growth every 2 years</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1,000+</div>
+          <div class="stat-label">Cats neutered in 2025 campaign</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crisis Section -->
+    <section class="section crisis-section" aria-labelledby="crisis-heading">
+      <div class="section-inner">
+        <div class="crisis-layout">
+          <div>
+            <span class="section-label">The Crisis</span>
+            <h2 class="section-title" id="crisis-heading">A population growing faster than we can help</h2>
+            <p class="section-body">
+              There are 23,053 street cats in Varna, and the municipality estimates the population has been growing by 85% every 2 years. There are not enough care-takers and resources for so many cats. Cats are dying of viruses, poisoning, and traffic accidents every day.
+            </p>
+            <div style="margin-top: 1.5rem;">
+              <p class="section-body">
+                In 2025, the council approved a budget for around 800 cats — and more than 1,000 were neutered. But this isn't enough to stop population growth. <strong style="color: var(--white);">Significant additional measures are required.</strong>
+              </p>
+            </div>
+          </div>
+          <div class="crisis-visual">
+            <div class="crisis-chart" role="img" aria-label="Cat population growth chart">
+              <div class="chart-title">Street Cat Population — Varna</div>
+              <div class="chart-bar-group">
+                <div class="chart-bar-label">
+                  <span>2016</span>
+                  <span>2,008</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 8.7%"></div>
+                </div>
+              </div>
+              <div class="chart-bar-group">
+                <div class="chart-bar-label">
+                  <span>2018</span>
+                  <span>~3,715</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 16%"></div>
+                </div>
+              </div>
+              <div class="chart-bar-group">
+                <div class="chart-bar-label">
+                  <span>2020</span>
+                  <span>~6,873</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 30%"></div>
+                </div>
+              </div>
+              <div class="chart-bar-group">
+                <div class="chart-bar-label">
+                  <span>2022</span>
+                  <span>~12,715</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 55%"></div>
+                </div>
+              </div>
+              <div class="chart-bar-group">
+                <div class="chart-bar-label">
+                  <span>2024</span>
+                  <span>23,053</span>
+                </div>
+                <div class="chart-bar-track">
+                  <div class="chart-bar-fill" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Cards -->
+    <section class="section" aria-labelledby="action-heading">
+      <div class="section-inner">
+        <span class="section-label">Take Action</span>
+        <h2 class="section-title" id="action-heading">How you can help</h2>
+        <p class="section-body">Every action counts. Here are the most impactful ways to support the street cats of Varna.</p>
+        <div class="cards-grid">
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">✍️</div>
+            <div class="card-title">Sign the Petition</div>
+            <p class="card-body">Tell Varna Municipality we need a municipal mass neutering programme.</p>
+            <span class="card-link">Sign now →</span>
+          </a>
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">📧</div>
+            <div class="card-title">Write to a Councillor</div>
+            <p class="card-body">Contact your local councillor and tell them why this programme matters.</p>
+            <span class="card-link">Find your councillor →</span>
+          </a>
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">🏡</div>
+            <div class="card-title">Adopt, Don't Shop</div>
+            <p class="card-body">Give a home to a street cat that truly needs one.</p>
+            <span class="card-link">Learn how to adopt →</span>
+          </a>
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">✂️</div>
+            <div class="card-title">Get a Cat Neutered</div>
+            <p class="card-body">Our step-by-step guide to getting a street cat neutered (TNR).</p>
+            <span class="card-link">Read the TNR guide →</span>
+          </a>
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">💚</div>
+            <div class="card-title">Donate</div>
+            <p class="card-body">Support our advocacy work with a donation of any size.</p>
+            <span class="card-link">Donate →</span>
+          </a>
+          <a href="#" class="card">
+            <div class="card-icon" aria-hidden="true">📢</div>
+            <div class="card-title">Spread the Word</div>
+            <p class="card-body">Share our website on social media to build awareness.</p>
+            <span class="card-link">Share →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Law Section -->
+    <section class="section law-section" aria-labelledby="law-heading">
+      <div class="section-inner" style="text-align: center;">
+        <span class="section-label">Legal Basis</span>
+        <h2 class="section-title" id="law-heading">The law is on our side</h2>
+        <div class="callout-box">
+          Under <strong>Art. 56</strong>, <strong>Art. 40(3)</strong> and <strong>Art. 40a(1)</strong> of the Animal Protection Act, when an increase in street cat populations is observed, municipal councils <strong>must</strong> introduce mass neutering programmes to achieve "management and reduction" of the population.
+          <br><br>
+          Every single vet we surveyed across Varna supports this programme. The science, the law, and the public are aligned.
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="#" class="btn-primary">Read our vet survey</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section" aria-labelledby="progress-heading">
+      <div class="section-inner" style="text-align: center;">
+        <span class="section-label">Progress</span>
+        <h2 class="section-title" id="progress-heading">What has been achieved</h2>
+        <div class="progress-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true">📋</div>
+            <div class="timeline-content">
+              <div class="timeline-date">2023</div>
+              <div class="timeline-title">LeoLife Bulgaria founded</div>
+              <p class="timeline-body">Established following the story of Leo, a kitten with hydrocephalus found alone in Varna's old town.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true">📊</div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024–2025</div>
+              <div class="timeline-title">Vet survey &amp; advocacy</div>
+              <p class="timeline-body">24 veterinary clinics surveyed — every single one supported a mass neutering programme.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true">🗳️</div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025</div>
+              <div class="timeline-title">Council approves budget</div>
+              <p class="timeline-body">Varna Municipal Council approved a free neutering campaign for ~800 street cats.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true">✅</div>
+            <div class="timeline-content">
+              <div class="timeline-date">January 2026</div>
+              <div class="timeline-title">1,000+ cats neutered!</div>
+              <p class="timeline-body">The campaign launched, exceeded its target, and the budget was fully spent within 3 months. A great start — but more is needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>LeoLife Bulgaria</h3>
+        <p>A foundation for the public benefit, fighting for a municipal mass neutering programme for the street cats of Varna.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="https://www.facebook.com/p/LeoLife-Bulgaria-61557787567126" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Facebook">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>
+          </a>
+          <a href="https://www.instagram.com/leolife_bulgaria/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Follow us on Instagram">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Our work &amp; plans</a></li>
+          <li><a href="#">Cat counting work</a></li>
+          <li><a href="#">2025 Summer Campaign</a></li>
+          <li><a href="#">Survey of vets</a></li>
+          <li><a href="#">Who we are</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Take Action</h4>
+        <ul>
+          <li><a href="#">Sign our petition</a></li>
+          <li><a href="#">What you can do</a></li>
+          <li><a href="#">Write to a councillor</a></li>
+          <li><a href="#">Get a cat neutered</a></li>
+          <li><a href="#">Adopt, don't shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>LeoLife Bulgaria — Foundation for the public benefit, NGO registry no. 207858224</span>
+      <span><a href="mailto:org@leolife.bg" style="color: inherit;">org@leolife.bg</a></span>
+    </div>
+  </footer>
+</body>
+</html>

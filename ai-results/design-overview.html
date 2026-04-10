@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f0f0f">
+  <title>LeoLife Bulgaria — Design Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Inter+Tight:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f0f0f;
+      --surface:  #1a1a1a;
+      --surface2: #222222;
+      --border:   #2e2e2e;
+      --white:    #ffffff;
+      --muted:    rgba(255,255,255,0.5);
+      --d1-accent: #4EB58C;
+      --d2-accent: #c6f135;
+      --d3-accent: #3d8c63;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--d1-accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ===== Page header ===== */
+    .page-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .page-header .kicker {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--d1-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-wrap: balance;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      text-wrap: pretty;
+    }
+
+    /* ===== Summary pills ===== */
+    .summary-pills {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* ===== Divider ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ===== Design Cards ===== */
+    .designs-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .designs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .designs-grid { grid-template-columns: 1fr; }
+    }
+
+    .design-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .design-card:hover {
+      transform: translateY(-4px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .design-card:hover { transform: none; }
+    }
+    .design-card.d1:hover { border-color: var(--d1-accent); }
+    .design-card.d2:hover { border-color: var(--d2-accent); }
+    .design-card.d3:hover { border-color: var(--d3-accent); }
+
+    /* ===== Thumbnail / Preview ===== */
+    .card-preview {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* Inline mini-renderings of each design using CSS */
+    .preview-d1 {
+      background: #0a1a0f;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    .preview-d1 .p-header {
+      height: 28px;
+      background: rgba(10,26,15,0.95);
+      border-bottom: 1px solid rgba(78,181,140,0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 8px;
+    }
+    .preview-d1 .p-logo-dot {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: #005431;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px;
+    }
+    .preview-d1 .p-logo-text {
+      font-size: 7px; font-weight: 800;
+      color: white;
+      font-family: 'Inter Tight', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .preview-d1 .p-nav-items {
+      margin-left: auto;
+      display: flex; gap: 6px;
+    }
+    .preview-d1 .p-nav-pill {
+      height: 10px; width: 28px;
+      background: rgba(78,181,140,0.3);
+      border-radius: 2px;
+    }
+    .preview-d1 .p-hero {
+      background:
+        radial-gradient(ellipse 50% 60% at 20% 50%, rgba(0,84,49,0.5) 0%, transparent 60%),
+        #050d07;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      gap: 6px;
+      position: relative;
+    }
+    .preview-d1 .p-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(78,181,140,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78,181,140,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .preview-d1 .p-badge {
+      background: rgba(78,181,140,0.15);
+      border: 1px solid #4EB58C;
+      color: #4EB58C;
+      font-size: 5px; font-weight: 700;
+      padding: 2px 6px; border-radius: 10px;
+      z-index: 1;
+    }
+    .preview-d1 .p-h1 {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 16px; font-weight: 900;
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      text-align: center;
+      z-index: 1;
+    }
+    .preview-d1 .p-h1 span { color: #4EB58C; }
+    .preview-d1 .p-sub {
+      font-size: 5.5px;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      max-width: 120px;
+      z-index: 1;
+    }
+    .preview-d1 .p-btns {
+      display: flex; gap: 5px;
+      z-index: 1;
+    }
+    .preview-d1 .p-btn-p {
+      background: #00a363;
+      color: #0a1a0f;
+      font-size: 5px; font-weight: 700;
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .preview-d1 .p-btn-s {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 5px;
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .preview-d1 .p-stats {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid rgba(78,181,140,0.12);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 12px;
+    }
+    .preview-d1 .p-stat-item { text-align: center; }
+    .preview-d1 .p-stat-n {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 10px; font-weight: 900;
+      color: #4EB58C;
+      line-height: 1;
+    }
+    .preview-d1 .p-stat-l {
+      font-size: 4px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 1px;
+    }
+
+    /* Design 2 preview */
+    .preview-d2 {
+      background: #0c0c0c;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    .preview-d2 .p-announce {
+      background: #c6f135;
+      text-align: center;
+      font-size: 5px; font-weight: 700;
+      color: #0c0c0c;
+      padding: 3px 6px;
+    }
+    .preview-d2 .p-hdr {
+      height: 24px;
+      background: #0c0c0c;
+      border-bottom: 1px solid #2e2e2e;
+      display: flex; align-items: center; padding: 0 10px; gap: 6px;
+    }
+    .preview-d2 .p-sym {
+      width: 16px; height: 16px;
+      background: #c6f135;
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7px; font-weight: 900; color: #0c0c0c;
+    }
+    .preview-d2 .p-nm {
+      font-family: Georgia, serif;
+      font-size: 7px; color: white;
+    }
+    .preview-d2 .p-nvs {
+      margin-left: auto; display: flex; gap: 4px;
+    }
+    .preview-d2 .p-nv {
+      font-size: 5px; color: rgba(255,255,255,0.4);
+    }
+    .preview-d2 .p-hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+    }
+    .preview-d2 .p-ht {
+      border-right: 1px solid #2e2e2e;
+      background: #0c0c0c;
+      padding: 10px;
+      display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    }
+    .preview-d2 .p-eye {
+      font-size: 4.5px; font-weight: 700; letter-spacing: 0.08em;
+      color: #c6f135; text-transform: uppercase;
+      display: flex; align-items: center; gap: 3px;
+    }
+    .preview-d2 .p-eye::before {
+      content: ''; display: inline-block; width: 8px; height: 1px;
+      background: #c6f135;
+    }
+    .preview-d2 .p-title {
+      font-family: Georgia, serif;
+      font-size: 13px; line-height: 1.05;
+      color: white;
+    }
+    .preview-d2 .p-title em { color: #c6f135; font-style: italic; }
+    .preview-d2 .p-desc {
+      font-size: 5px; color: rgba(255,255,255,0.45); line-height: 1.4;
+    }
+    .preview-d2 .p-cbtn {
+      background: #c6f135; color: #0c0c0c;
+      font-size: 5px; font-weight: 700;
+      padding: 3px 7px; border-radius: 2px;
+      display: inline-block; width: fit-content;
+    }
+    .preview-d2 .p-stat-col {
+      display: grid; grid-template-rows: 1fr 1fr;
+    }
+    .preview-d2 .p-sc-top {
+      background: #111; border-bottom: 1px solid #2e2e2e;
+      padding: 8px 10px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .preview-d2 .p-sc-bot {
+      background: #c6f135; padding: 8px 10px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .preview-d2 .p-sc-meta { font-size: 4px; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.07em; }
+    .preview-d2 .p-sc-top .p-sc-meta { color: white; }
+    .preview-d2 .p-sc-bot .p-sc-meta { color: #0c0c0c; }
+    .preview-d2 .p-sc-num {
+      font-family: Georgia, serif;
+      font-size: 28px; line-height: 0.9; letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .preview-d2 .p-sc-top .p-sc-num { color: #c6f135; }
+    .preview-d2 .p-sc-bot .p-sc-num { color: #0c0c0c; }
+
+    /* Design 3 preview */
+    .preview-d3 {
+      background: #f7f4ef;
+      color: #1a2e22;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+    .preview-d3 .p-strip {
+      background: #1d4a33;
+      font-size: 5px; font-weight: 600; color: #f7f4ef;
+      text-align: center; padding: 3px 6px;
+    }
+    .preview-d3 .p-strip span { color: #8dc3a0; text-decoration: underline; }
+    .preview-d3 .p-hdr3 {
+      height: 28px;
+      background: #fdfcfa;
+      border-bottom: 1px solid #d6cfc5;
+      display: flex; align-items: center; padding: 0 10px; gap: 6px;
+    }
+    .preview-d3 .p-circle {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: linear-gradient(135deg, #1d4a33, #3d8c63);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px;
+    }
+    .preview-d3 .p-brand {
+      font-family: Georgia, serif; font-size: 7px;
+      color: #1a2e22; font-weight: 700;
+    }
+    .preview-d3 .p-nmenu {
+      margin-left: auto; display: flex; gap: 5px;
+    }
+    .preview-d3 .p-nmenu span {
+      font-size: 5px; color: #3d5246;
+    }
+    .preview-d3 .p-snbtn {
+      background: #1d4a33; color: #f7f4ef;
+      font-size: 5px; font-weight: 700;
+      padding: 2px 7px; border-radius: 10px;
+    }
+    .preview-d3 .p-hero3 {
+      background: linear-gradient(160deg, #e8f2ec 0%, #f7f4ef 60%);
+      padding: 12px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview-d3 .p-hero3::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(90,166,122,0.15) 0%, transparent 70%);
+    }
+    .preview-d3 .p-tag3 {
+      background: #c5dfc9; color: #1d4a33;
+      font-size: 4.5px; font-weight: 700;
+      padding: 2px 7px; border-radius: 10px;
+      z-index: 1;
+    }
+    .preview-d3 .p-h13 {
+      font-family: Georgia, serif;
+      font-size: 15px; font-weight: 700;
+      color: #1a2e22; line-height: 1.1;
+      text-align: center;
+      z-index: 1;
+    }
+    .preview-d3 .p-h13 span { color: #1d4a33; font-style: italic; }
+    .preview-d3 .p-ld {
+      font-size: 5px; color: #3d5246;
+      text-align: center; max-width: 130px; line-height: 1.4;
+      z-index: 1;
+    }
+    .preview-d3 .p-bgrp3 {
+      display: flex; gap: 5px; z-index: 1;
+    }
+    .preview-d3 .p-btn-f {
+      background: #1d4a33; color: #f7f4ef;
+      font-size: 5px; font-weight: 700;
+      padding: 3px 8px; border-radius: 10px;
+    }
+    .preview-d3 .p-btn-o {
+      background: transparent; color: #1d4a33;
+      font-size: 5px; font-weight: 600;
+      padding: 3px 8px; border-radius: 10px;
+      border: 1px solid #b5d4bc;
+    }
+    .preview-d3 .p-sbar {
+      background: #fdfcfa;
+      border: 1px solid #d6cfc5;
+      border-radius: 6px;
+      display: flex; justify-content: space-around;
+      padding: 5px 8px;
+      margin: 0 12px 10px;
+      z-index: 1;
+    }
+    .preview-d3 .p-sf {
+      font-family: Georgia, serif;
+      font-size: 9px; font-weight: 700; color: #1d4a33;
+      line-height: 1; text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .preview-d3 .p-sl {
+      font-size: 4px; color: #7a9487; margin-top: 1px; text-align: center;
+    }
+    .preview-d3 .p-sep3 { font-size: 8px; color: #b5d4bc; line-height: 1; align-self: center; }
+
+    /* ===== Card body ===== */
+    .card-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .d1 .card-num { color: var(--d1-accent); }
+    .d2 .card-num { color: var(--d2-accent); }
+    .d3 .card-num { color: var(--d3-accent); }
+
+    .card-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Design tags */
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--surface2);
+      color: rgba(255,255,255,0.55);
+      border: 1px solid var(--border);
+    }
+
+    /* Traits list */
+    .traits {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    .traits li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .traits li:last-child { border-bottom: none; }
+    .traits li::before {
+      content: '✓';
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .d1 .traits li::before { color: var(--d1-accent); }
+    .d2 .traits li::before { color: var(--d2-accent); }
+    .d3 .traits li::before { color: var(--d3-accent); }
+
+    .card-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.5rem;
+      transition: filter 0.15s, transform 0.1s;
+      touch-action: manipulation;
+      align-self: flex-start;
+    }
+    .card-cta:hover { filter: brightness(1.1); }
+    .card-cta:active { transform: scale(0.97); }
+
+    .d1 .card-cta { background: #005431; color: var(--d1-accent); border: 1px solid var(--d1-accent); }
+    .d2 .card-cta { background: var(--d2-accent); color: #0c0c0c; }
+    .d3 .card-cta { background: #1d4a33; color: #f7f4ef; }
+
+    /* ===== Comparison Table ===== */
+    .compare-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .compare-section h2 {
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      text-wrap: balance;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    th:first-child, td:first-child {
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    td:nth-child(2) { color: var(--d1-accent); }
+    td:nth-child(3) { color: var(--d2-accent); }
+    td:nth-child(4) { color: var(--d3-accent); }
+
+    tr:last-child td { border-bottom: none; }
+
+    @media (max-width: 600px) {
+      .compare-section { overflow-x: auto; }
+      table { min-width: 500px; }
+    }
+
+    /* ===== Footer ===== */
+    .page-footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .page-footer a { color: var(--d1-accent); }
+  </style>
+</head>
+<body>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <span class="kicker">Design Concepts</span>
+    <h1>LeoLife Bulgaria — Three Design Alternatives</h1>
+    <p>Three modern redesigns of the English-language homepage, each with a distinct visual language while serving the same advocacy mission.</p>
+    <div class="summary-pills">
+      <span class="pill">🐱 Street cat advocacy</span>
+      <span class="pill">📍 Varna, Bulgaria</span>
+      <span class="pill">✅ Accessibility-compliant</span>
+      <span class="pill">📱 Responsive</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Design cards with previews -->
+  <div class="designs-section">
+    <div class="designs-grid">
+
+      <!-- Design 1 -->
+      <div class="design-card d1">
+        <div class="card-preview" aria-label="Preview of Design 1: Data Impact — dark green with grid overlay and stats bar">
+          <div class="preview-d1">
+            <div class="p-header">
+              <div class="p-logo-dot" aria-hidden="true">🐱</div>
+              <span class="p-logo-text">LeoLife Bulgaria</span>
+              <div class="p-nav-items">
+                <div class="p-nav-pill"></div>
+                <div class="p-nav-pill"></div>
+                <div class="p-nav-pill"></div>
+              </div>
+            </div>
+            <div class="p-hero">
+              <div class="p-badge">🔴 Street Cat Crisis</div>
+              <div class="p-h1">From <span>2,008</span> to <span>23,053</span><br>in 8 years</div>
+              <div class="p-sub">Varna's street cat population grows 85% every 2 years. We need action now.</div>
+              <div class="p-btns">
+                <div class="p-btn-p">Sign Petition →</div>
+                <div class="p-btn-s">Learn More</div>
+              </div>
+            </div>
+            <div class="p-stats">
+              <div class="p-stat-item">
+                <div class="p-stat-n">2,008</div>
+                <div class="p-stat-l">Cats 2016</div>
+              </div>
+              <div class="p-stat-item">
+                <div class="p-stat-n">23,053</div>
+                <div class="p-stat-l">Cats 2024</div>
+              </div>
+              <div class="p-stat-item">
+                <div class="p-stat-n">+85%</div>
+                <div class="p-stat-l">per 2 years</div>
+              </div>
+              <div class="p-stat-item">
+                <div class="p-stat-n">1,000+</div>
+                <div class="p-stat-l">neutered 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 01</div>
+          <div class="card-title">Data Impact</div>
+          <p class="card-desc">A dark, data-driven design inspired by modern NGO and tech advocacy sites. Glassmorphism header, grid overlay hero, animated bar chart, and card-based action grid. Keeps the original dark green/teal palette but dramatically more polished.</p>
+          <div class="tag-group">
+            <span class="tag">Dark theme</span>
+            <span class="tag">Data-forward</span>
+            <span class="tag">Glassmorphism</span>
+            <span class="tag">Grid overlay</span>
+            <span class="tag">Card layout</span>
+          </div>
+          <ul class="traits">
+            <li>Sticky frosted-glass nav with logo, links, and CTA</li>
+            <li>Hero with grid overlay and gradient radial spotlights</li>
+            <li>Stats strip with tabular numerals and dividers</li>
+            <li>Population bar chart (CSS-only)</li>
+            <li>6-card action grid with hover lift effects</li>
+            <li>Timeline section for achievements</li>
+            <li>Sticky "Sign Petition" CTA throughout</li>
+          </ul>
+          <a href="design-1-data-impact.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 1 →
+          </a>
+        </div>
+      </div>
+
+      <!-- Design 2 -->
+      <div class="design-card d2">
+        <div class="card-preview" aria-label="Preview of Design 2: Bold Advocate — editorial split layout with lime accent and serif typography">
+          <div class="preview-d2">
+            <div class="p-announce">🐾 <span style="text-decoration: underline;">Sign our petition</span> for a municipal mass neutering programme for the street cats in Varna!</div>
+            <div class="p-hdr">
+              <div class="p-sym">L</div>
+              <span class="p-nm">LeoLife Bulgaria</span>
+              <div class="p-nvs">
+                <span class="p-nv">About us</span>
+                <span class="p-nv">Take action</span>
+                <span class="p-nv">Donate</span>
+              </div>
+            </div>
+            <div class="p-hero-split">
+              <div class="p-ht">
+                <div class="p-eye">Varna, Bulgaria</div>
+                <div class="p-title">We need <em>mass neutering</em> for Varna's street cats</div>
+                <div class="p-desc">Population grew from 2,008 to 23,053 in just 8 years. Without action, the crisis worsens.</div>
+                <div class="p-cbtn">Sign the Petition →</div>
+              </div>
+              <div class="p-stat-col">
+                <div class="p-sc-top">
+                  <div class="p-sc-meta">Street cats — 2016</div>
+                  <div class="p-sc-num">2,008</div>
+                </div>
+                <div class="p-sc-bot">
+                  <div class="p-sc-meta">Street cats — 2024</div>
+                  <div class="p-sc-num">23,053</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 02</div>
+          <div class="card-title">Bold Advocate</div>
+          <p class="card-desc">An editorial, high-contrast design with a 50/50 split hero: narrative text on the left, dramatic statistics on the right. Lime-yellow accent on near-black creates an arresting, journalistic feel inspired by investigative media and advocacy publications.</p>
+          <div class="tag-group">
+            <span class="tag">Editorial split</span>
+            <span class="tag">High contrast</span>
+            <span class="tag">Serif + sans</span>
+            <span class="tag">Lime accent</span>
+            <span class="tag">Journalistic</span>
+          </div>
+          <ul class="traits">
+            <li>Full-height editorial hero: text column + split statistics</li>
+            <li>Lime (#c6f135) accent on deep black — maximum contrast</li>
+            <li>DM Serif Display + DM Sans typographic pairing</li>
+            <li>Pull-quote mission statement section</li>
+            <li>Numbered 3-column info grid (bordered)</li>
+            <li>Full-bleed lime CTA action strip</li>
+            <li>Numbered help grid (01–06) with hover darkening</li>
+          </ul>
+          <a href="design-2-bold-advocate.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 2 →
+          </a>
+        </div>
+      </div>
+
+      <!-- Design 3 -->
+      <div class="design-card d3">
+        <div class="card-preview" aria-label="Preview of Design 3: Warm Nature — light cream background with forest green and Lora serif typography">
+          <div class="preview-d3">
+            <div class="p-strip">🐾 <span>Sign our petition</span> for a municipal mass neutering programme!</div>
+            <div class="p-hdr3">
+              <div class="p-circle" aria-hidden="true">🐱</div>
+              <span class="p-brand">LeoLife Bulgaria</span>
+              <div class="p-nmenu">
+                <span>About us</span>
+                <span>Take action</span>
+                <span>Donate</span>
+              </div>
+              <div class="p-snbtn" style="margin-left: 6px;">Sign Petition</div>
+            </div>
+            <div class="p-hero3">
+              <div class="p-tag3">🏙️ Varna, Bulgaria</div>
+              <div class="p-h13">Fighting for a <span>better city</span><br>for cats and people</div>
+              <div class="p-ld">Varna's street cat population grew from 2,008 to 23,053. We're advocating for a municipal mass neutering programme.</div>
+              <div class="p-bgrp3">
+                <div class="p-btn-f">Sign Petition →</div>
+                <div class="p-btn-o">Learn more</div>
+              </div>
+              <div class="p-sbar">
+                <div>
+                  <div class="p-sf">2,008</div>
+                  <div class="p-sl">Cats 2016</div>
+                </div>
+                <div class="p-sep3">→</div>
+                <div>
+                  <div class="p-sf">23,053</div>
+                  <div class="p-sl">Cats 2024</div>
+                </div>
+                <div class="p-sep3">≈</div>
+                <div>
+                  <div class="p-sf">+85%</div>
+                  <div class="p-sl">per 2 years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 03</div>
+          <div class="card-title">Warm Nature</div>
+          <p class="card-desc">A warm, approachable light-theme design using cream and forest-green tones with Lora serif headlines. More inviting and accessible than the existing site, with an organic feel suited to an animal welfare NGO. Stats displayed in a compact white card bar beneath the headline.</p>
+          <div class="tag-group">
+            <span class="tag">Light theme</span>
+            <span class="tag">Warm palette</span>
+            <span class="tag">Serif headings</span>
+            <span class="tag">Approachable</span>
+            <span class="tag">Nature tones</span>
+          </div>
+          <ul class="traits">
+            <li>Cream/warm-white background — inviting, not harsh</li>
+            <li>Lora serif + Source Sans 3 — warm editorial authority</li>
+            <li>Stats bar card directly in the hero section</li>
+            <li>4 fact-cards with hover slide animation</li>
+            <li>Dark forest green progress banner section</li>
+            <li>6-card action grid with box-shadow lift on hover</li>
+            <li>Story section: sidebar memorial card + narrative text</li>
+          </ul>
+          <a href="design-3-warm-nature.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 3 →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Comparison table -->
+  <div class="compare-section">
+    <h2>Design Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Design 1 — Data Impact</th>
+          <th>Design 2 — Bold Advocate</th>
+          <th>Design 3 — Warm Nature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Background</td>
+          <td>Deep dark green (#0a1a0f)</td>
+          <td>Near-black (#0c0c0c)</td>
+          <td>Warm cream (#f7f4ef)</td>
+        </tr>
+        <tr>
+          <td>Accent colour</td>
+          <td>Teal green (#4EB58C)</td>
+          <td>Lime yellow (#c6f135)</td>
+          <td>Forest green (#1d4a33)</td>
+        </tr>
+        <tr>
+          <td>Primary typeface</td>
+          <td>Inter / Inter Tight</td>
+          <td>DM Serif Display + DM Sans</td>
+          <td>Lora + Source Sans 3</td>
+        </tr>
+        <tr>
+          <td>Hero layout</td>
+          <td>Full-width centred hero, grid bg</td>
+          <td>50/50 editorial split</td>
+          <td>Centred, organic gradient bg</td>
+        </tr>
+        <tr>
+          <td>Data display</td>
+          <td>Stats strip + CSS bar chart</td>
+          <td>Full-height stat panels</td>
+          <td>Compact stats card bar</td>
+        </tr>
+        <tr>
+          <td>Mood</td>
+          <td>Data-driven, authoritative</td>
+          <td>Editorial, activist, urgent</td>
+          <td>Warm, trustworthy, approachable</td>
+        </tr>
+        <tr>
+          <td>Best suited for</td>
+          <td>Tech-savvy donors, media</td>
+          <td>Petition signers, activists</td>
+          <td>General public, adopters, volunteers</td>
+        </tr>
+        <tr>
+          <td>Vercel guidelines</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="page-footer">
+    <p>LeoLife Bulgaria Design Concepts · Generated by GitHub Copilot · <a href="https://leolife.bg" target="_blank" rel="noopener noreferrer">leolife.bg</a></p>
+  </footer>
+
+</body>
+</html>
