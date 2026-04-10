@@ -248,11 +248,11 @@ h1, h2, h3 {
 .leading-container {
   background-color: $monochromatic-color;
   padding-bottom: 2rem;
-}
-
-.leading-container {
   @media (min-width: 768px) {
     height: calc(100svh - var(--header-height, 0px));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
