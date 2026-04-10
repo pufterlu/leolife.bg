@@ -21,6 +21,9 @@
       --d1-accent: #4EB58C;
       --d2-accent: #c6f135;
       --d3-accent: #3d8c63;
+      --d4-accent: #e84c00;
+      --d5-accent: #ff6600;
+      --d6-accent: #f5e642;
     }
 
     html { scroll-behavior: smooth; }
@@ -139,6 +142,9 @@
     .design-card.d1:hover { border-color: var(--d1-accent); }
     .design-card.d2:hover { border-color: var(--d2-accent); }
     .design-card.d3:hover { border-color: var(--d3-accent); }
+    .design-card.d4:hover { border-color: var(--d4-accent); }
+    .design-card.d5:hover { border-color: var(--d5-accent); }
+    .design-card.d6:hover { border-color: var(--d6-accent); }
 
     /* ===== Thumbnail / Preview ===== */
     .card-preview {
@@ -473,6 +479,313 @@
     }
     .preview-d3 .p-sep3 { font-size: 8px; color: #b5d4bc; line-height: 1; align-self: center; }
 
+    /* ===== D4 — Street Activist preview ===== */
+    .preview-d4 {
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .preview-d4 .p-ticker4 {
+      background: #e84c00;
+      color: #fff;
+      font-size: 6px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 6px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .preview-d4 .p-hdr4 {
+      background: #0d0d0d;
+      border-bottom: 2px solid #e84c00;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px;
+    }
+    .preview-d4 .p-logo4 {
+      color: #fff;
+      font-size: 7px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .preview-d4 .p-logo4 span { color: #e84c00; }
+    .preview-d4 .p-nav4 { display: flex; gap: 4px; }
+    .preview-d4 .p-np4 {
+      width: 16px; height: 3px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 1px;
+    }
+    .preview-d4 .p-hero4 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8px 10px;
+      background: #0d0d0d;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
+    }
+    .preview-d4 .p-sup4 {
+      font-size: 5px;
+      font-weight: 700;
+      color: #e84c00;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 3px;
+    }
+    .preview-d4 .p-h14 {
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .preview-d4 .p-h14 .p-orange { color: #e84c00; }
+    .preview-d4 .p-sub4 {
+      font-size: 5px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 5px;
+    }
+    .preview-d4 .p-btns4 { display: flex; gap: 3px; }
+    .preview-d4 .p-btnp4 {
+      background: #e84c00;
+      color: #fff;
+      font-size: 5px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 1px;
+    }
+    .preview-d4 .p-btns4-s {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-size: 5px;
+      padding: 3px 6px;
+    }
+    .preview-d4 .p-stats4 {
+      display: flex;
+      gap: 0;
+      background: #1a1a1a;
+      border-top: 2px solid #e84c00;
+    }
+    .preview-d4 .p-stat4 {
+      flex: 1;
+      padding: 4px;
+      border-right: 1px solid #333;
+      text-align: center;
+    }
+    .preview-d4 .p-sn4 {
+      font-size: 8px;
+      font-weight: 900;
+      color: #e84c00;
+    }
+    .preview-d4 .p-sl4 {
+      font-size: 4px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    /* ===== D5 — Youth Movement preview ===== */
+    .preview-d5 {
+      background: #ff6600;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    .preview-d5 .p-hdr5 {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px;
+    }
+    .preview-d5 .p-logo5 {
+      color: #ff6600;
+      font-size: 8px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .preview-d5 .p-nav5 { display: flex; gap: 4px; }
+    .preview-d5 .p-np5 {
+      width: 16px; height: 3px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 1px;
+    }
+    .preview-d5 .p-hero5 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 8px 12px;
+    }
+    .preview-d5 .p-tag5 {
+      background: #000;
+      color: #ff6600;
+      font-size: 5px;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 1px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .preview-d5 .p-h15 {
+      font-size: 16px;
+      font-weight: 900;
+      color: #000;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 3px;
+    }
+    .preview-d5 .p-hashtag {
+      font-size: 7px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 5px;
+    }
+    .preview-d5 .p-btn5 {
+      background: #000;
+      color: #ff6600;
+      font-size: 5px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 1px;
+    }
+    .preview-d5 .p-strip5 {
+      background: #000;
+      display: flex;
+    }
+    .preview-d5 .p-si5 {
+      flex: 1;
+      padding: 4px;
+      text-align: center;
+      border-right: 1px solid #222;
+    }
+    .preview-d5 .p-sn5 {
+      font-size: 8px;
+      font-weight: 900;
+      color: #ff6600;
+    }
+    .preview-d5 .p-sl5 {
+      font-size: 4px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ===== D6 — Brand Pop preview ===== */
+    .preview-d6 {
+      background: linear-gradient(160deg, #005431 0%, #003520 60%, #001a10 100%);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      font-family: serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .preview-d6 .p-hdr6 {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 5px 8px;
+      border-bottom: 1px solid rgba(245,230,66,0.25);
+    }
+    .preview-d6 .p-nav6l,
+    .preview-d6 .p-nav6r { display: flex; gap: 4px; }
+    .preview-d6 .p-nav6r { justify-content: flex-end; }
+    .preview-d6 .p-np6 {
+      width: 14px; height: 3px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 1px;
+    }
+    .preview-d6 .p-logo6 {
+      text-align: center;
+      color: #f5e642;
+      font-size: 9px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: -0.01em;
+    }
+    .preview-d6 .p-logo6 small {
+      display: block;
+      font-size: 4px;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .preview-d6 .p-hero6 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6px 10px;
+    }
+    .preview-d6 .p-badge6 {
+      border: 1px solid rgba(245,230,66,0.5);
+      color: #f5e642;
+      font-size: 5px;
+      font-style: normal;
+      padding: 2px 5px;
+      border-radius: 20px;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+    .preview-d6 .p-h16 {
+      font-size: 12px;
+      font-weight: 700;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .preview-d6 .p-h16 span { color: #f5e642; }
+    .preview-d6 .p-sub6 {
+      font-size: 4.5px;
+      font-style: normal;
+      font-family: sans-serif;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 5px;
+    }
+    .preview-d6 .p-cards6 {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+    }
+    .preview-d6 .p-card6 {
+      background: rgba(245,230,66,0.12);
+      border: 1px solid rgba(245,230,66,0.25);
+      padding: 4px 5px;
+      border-radius: 4px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    .preview-d6 .p-cn6 {
+      font-size: 7px;
+      font-weight: 700;
+      color: #f5e642;
+    }
+    .preview-d6 .p-cl6 {
+      font-size: 3.5px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    .preview-d6 .p-wave6 {
+      height: 8px;
+      background: #f7f4ef;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
     /* ===== Card body ===== */
     .card-info {
       padding: 1.5rem;
@@ -493,6 +806,9 @@
     .d1 .card-num { color: var(--d1-accent); }
     .d2 .card-num { color: var(--d2-accent); }
     .d3 .card-num { color: var(--d3-accent); }
+    .d4 .card-num { color: var(--d4-accent); }
+    .d5 .card-num { color: var(--d5-accent); }
+    .d6 .card-num { color: var(--d6-accent); }
 
     .card-title {
       font-family: 'Inter Tight', sans-serif;
@@ -646,8 +962,8 @@
   <!-- Page header -->
   <div class="page-header">
     <span class="kicker">Design Concepts</span>
-    <h1>LeoLife Bulgaria — Three Design Alternatives</h1>
-    <p>Three modern redesigns of the English-language homepage, each with a distinct visual language while serving the same advocacy mission.</p>
+    <h1>LeoLife Bulgaria — Six Design Alternatives</h1>
+    <p>Six modern redesigns of the English-language homepage across two rounds — the first three exploring data-driven, editorial, and warm aesthetics; the second three inspired by grassroots activist movements.</p>
     <div class="summary-pills">
       <span class="pill">🐱 Street cat advocacy</span>
       <span class="pill">📍 Varna, Bulgaria</span>
@@ -858,6 +1174,163 @@
         </div>
       </div>
 
+      <!-- Design 4 -->
+      <div class="design-card d4">
+        <div class="card-preview" aria-label="Preview of Design 4: Street Activist — black/orange Just Stop Oil-inspired poster design with condensed type and activist energy">
+          <div class="preview-d4">
+            <div class="p-ticker4">⚠ VARNA HAS 23,053 STREET CATS · ACTION NEEDED NOW · SIGN THE PETITION · DEMAND MASS NEUTERING ·</div>
+            <div class="p-hdr4">
+              <div class="p-logo4"><span>Leo</span>Life Bulgaria</div>
+              <div class="p-nav4">
+                <div class="p-np4"></div>
+                <div class="p-np4"></div>
+                <div class="p-np4"></div>
+              </div>
+            </div>
+            <div class="p-hero4">
+              <div class="p-sup4">⚠ Varna Street Cat Crisis</div>
+              <div class="p-h14">CATS ARE<br><span class="p-orange">DYING</span></div>
+              <div class="p-sub4">Population: 2,008 → 23,053 in 8 years. +85% every 2 years.</div>
+              <div class="p-btns4">
+                <div class="p-btnp4">SIGN NOW →</div>
+              </div>
+            </div>
+            <div class="p-stats4">
+              <div class="p-stat4"><div class="p-sn4">23K+</div><div class="p-sl4">Cats 2024</div></div>
+              <div class="p-stat4"><div class="p-sn4">+85%</div><div class="p-sl4">Per 2 yrs</div></div>
+              <div class="p-stat4"><div class="p-sn4">1,000+</div><div class="p-sl4">Neutered</div></div>
+              <div class="p-stat4"><div class="p-sn4">24/24</div><div class="p-sl4">Vets agree</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 04</div>
+          <div class="card-title">Street Activist</div>
+          <p class="card-desc">Inspired by Just Stop Oil — raw, poster-like urgency with Barlow Condensed, stark black/orange contrast, a scrolling news ticker, and diagonal hero clip-path. Treats the cat crisis as a civil emergency demanding immediate action.</p>
+          <div class="tag-group">
+            <span class="tag">Dark/orange</span>
+            <span class="tag">Poster energy</span>
+            <span class="tag">Condensed type</span>
+            <span class="tag">Ticker marquee</span>
+            <span class="tag">Activist urgency</span>
+          </div>
+          <ul class="traits">
+            <li>Scrolling orange ticker with crisis facts at top</li>
+            <li>Massive condensed uppercase hero headline</li>
+            <li>Diagonal hero clip-path for forward momentum</li>
+            <li>Orange stat strip with key numbers below hero</li>
+            <li>White high-contrast "What Must Happen" section</li>
+            <li>prefers-reduced-motion disables ticker animation</li>
+          </ul>
+          <a href="design-4-street-activist.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 4 →
+          </a>
+        </div>
+      </div>
+
+      <!-- Design 5 -->
+      <div class="design-card d5">
+        <div class="card-preview" aria-label="Preview of Design 5: Youth Movement — full orange background Fridays For Future-inspired design with bold movement energy">
+          <div class="preview-d5">
+            <div class="p-hdr5">
+              <div class="p-logo5">LEOLIFE</div>
+              <div class="p-nav5">
+                <div class="p-np5"></div>
+                <div class="p-np5"></div>
+                <div class="p-np5"></div>
+              </div>
+            </div>
+            <div class="p-hero5">
+              <div class="p-tag5">VARNA · BULGARIA · 2025</div>
+              <div class="p-h15">NEUTER<br>THEM<br>ALL</div>
+              <div class="p-hashtag">#MassNeuteringNow</div>
+              <div class="p-btn5">JOIN THE MOVEMENT →</div>
+            </div>
+            <div class="p-strip5">
+              <div class="p-si5"><div class="p-sn5">23K</div><div class="p-sl5">Cats 2024</div></div>
+              <div class="p-si5"><div class="p-sn5">+85%</div><div class="p-sl5">Per 2 yrs</div></div>
+              <div class="p-si5"><div class="p-sn5">1,000+</div><div class="p-sl5">Neutered</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 05</div>
+          <div class="card-title">Youth Movement</div>
+          <p class="card-desc">Inspired by Fridays For Future — a full vivid orange background floods the page with movement energy. Space Grotesk + Space Mono, bold all-caps slogan, hashtag culture, and a black stats strip below. Feels like a youth-led street protest turned website.</p>
+          <div class="tag-group">
+            <span class="tag">Full orange</span>
+            <span class="tag">Movement feel</span>
+            <span class="tag">Hashtag culture</span>
+            <span class="tag">Black/orange</span>
+            <span class="tag">Youth-led</span>
+          </div>
+          <ul class="traits">
+            <li>Full vivid orange (#ff6600) as primary background</li>
+            <li>Bold all-caps slogan "NEUTER THEM ALL"</li>
+            <li>Hashtag #MassNeuteringNow as visual element</li>
+            <li>Space Mono for the data/stat strip below hero</li>
+            <li>Yellow info cards for action items</li>
+            <li>High-energy, protest-poster visual language</li>
+          </ul>
+          <a href="design-5-youth-movement.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 5 →
+          </a>
+        </div>
+      </div>
+
+      <!-- Design 6 -->
+      <div class="design-card d6">
+        <div class="card-preview" aria-label="Preview of Design 6: Brand Pop — Little Moons-inspired centred logo navbar with large immersive forest green hero and gold accent">
+          <div class="preview-d6">
+            <div class="p-hdr6">
+              <div class="p-nav6l">
+                <div class="p-np6"></div>
+                <div class="p-np6"></div>
+              </div>
+              <div class="p-logo6">LeoLife<small>Bulgaria</small></div>
+              <div class="p-nav6r">
+                <div class="p-np6"></div>
+                <div class="p-np6"></div>
+              </div>
+            </div>
+            <div class="p-hero6">
+              <div class="p-badge6">🐾 Varna's Street Cat Crisis</div>
+              <div class="p-h16">From <span>2,008</span> to<br><span>23,053</span> cats</div>
+              <div class="p-sub6">+85% every 2 years. We need municipal mass neutering — now.</div>
+              <div class="p-cards6">
+                <div class="p-card6"><div class="p-cn6">23K+</div><div class="p-cl6">2024</div></div>
+                <div class="p-card6"><div class="p-cn6">+85%</div><div class="p-cl6">growth</div></div>
+                <div class="p-card6"><div class="p-cn6">1K+</div><div class="p-cl6">neutered</div></div>
+              </div>
+            </div>
+            <div class="p-wave6"></div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-num">Design 06</div>
+          <div class="card-title">Brand Pop</div>
+          <p class="card-desc">Inspired by Little Moons — the logo is centred in the navbar using a CSS grid 3-column layout, flanked by navigation links. A rich forest-green gradient hero with gold (#f5e642) accents, Playfair Display italic serif, and glassmorphic data cards create strong brand identity.</p>
+          <div class="tag-group">
+            <span class="tag">Centred logo nav</span>
+            <span class="tag">Forest green</span>
+            <span class="tag">Gold accent</span>
+            <span class="tag">Italic serif</span>
+            <span class="tag">Glassmorphism</span>
+          </div>
+          <ul class="traits">
+            <li>CSS grid 1fr auto 1fr nav — centred logo (Little Moons pattern)</li>
+            <li>Playfair Display italic for headline authority</li>
+            <li>Gold #f5e642 accent on deep forest green</li>
+            <li>Glassmorphic hero data cards with backdrop-filter</li>
+            <li>SVG organic wave divider between hero and content</li>
+            <li>Strong brand identity front and centre</li>
+          </ul>
+          <a href="design-6-brand-pop.html" class="card-cta" target="_blank" rel="noopener">
+            Open Design 6 →
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -873,6 +1346,9 @@
           <th>Design 1 — Data Impact</th>
           <th>Design 2 — Bold Advocate</th>
           <th>Design 3 — Warm Nature</th>
+          <th>Design 4 — Street Activist</th>
+          <th>Design 5 — Youth Movement</th>
+          <th>Design 6 — Brand Pop</th>
         </tr>
       </thead>
       <tbody>
@@ -881,55 +1357,79 @@
           <td>Deep dark green (#0a1a0f)</td>
           <td>Near-black (#0c0c0c)</td>
           <td>Warm cream (#f7f4ef)</td>
+          <td>Black (#0d0d0d)</td>
+          <td>Full orange (#ff6600)</td>
+          <td>Forest green gradient (#005431)</td>
         </tr>
         <tr>
           <td>Accent colour</td>
           <td>Teal green (#4EB58C)</td>
           <td>Lime yellow (#c6f135)</td>
           <td>Forest green (#1d4a33)</td>
+          <td>Burnt orange (#e84c00)</td>
+          <td>Black (#000000)</td>
+          <td>Gold (#f5e642)</td>
         </tr>
         <tr>
           <td>Primary typeface</td>
           <td>Inter / Inter Tight</td>
           <td>DM Serif Display + DM Sans</td>
           <td>Lora + Source Sans 3</td>
+          <td>Barlow Condensed + Barlow</td>
+          <td>Space Grotesk + Space Mono</td>
+          <td>Playfair Display + Nunito</td>
         </tr>
         <tr>
           <td>Hero layout</td>
           <td>Full-width centred hero, grid bg</td>
           <td>50/50 editorial split</td>
           <td>Centred, organic gradient bg</td>
+          <td>Diagonal clip-path, poster slash</td>
+          <td>Full-bleed orange, centred slogán</td>
+          <td>Centred, large brand gradient</td>
         </tr>
         <tr>
           <td>Data display</td>
           <td>Stats strip + CSS bar chart</td>
           <td>Full-height stat panels</td>
           <td>Compact stats card bar</td>
+          <td>Orange bottom stat strip</td>
+          <td>Black stat strip below hero</td>
+          <td>Glassmorphic floating cards</td>
         </tr>
         <tr>
           <td>Mood</td>
           <td>Data-driven, authoritative</td>
           <td>Editorial, activist, urgent</td>
           <td>Warm, trustworthy, approachable</td>
+          <td>Grassroots, civil disobedience</td>
+          <td>Youth-led, protest energy</td>
+          <td>Premium brand, emotionally rich</td>
         </tr>
         <tr>
           <td>Best suited for</td>
           <td>Tech-savvy donors, media</td>
           <td>Petition signers, activists</td>
           <td>General public, adopters, volunteers</td>
+          <td>Activists, campaign launches</td>
+          <td>Youth, social media audiences</td>
+          <td>Donors, media, brand awareness</td>
         </tr>
         <tr>
           <td>Vercel guidelines</td>
           <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
           <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
           <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, ticker disabled on reduced-motion</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, text-wrap: balance</td>
+          <td>Skip link, aria-labels, focus-visible, prefers-reduced-motion, backdrop-filter fallback</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <footer class="page-footer">
-    <p>LeoLife Bulgaria Design Concepts · Generated by GitHub Copilot · <a href="https://leolife.bg" target="_blank" rel="noopener noreferrer">leolife.bg</a></p>
+    <p>LeoLife Bulgaria — 6 Design Concepts · Generated by GitHub Copilot · <a href="https://leolife.bg" target="_blank" rel="noopener noreferrer">leolife.bg</a></p>
   </footer>
 
 </body>

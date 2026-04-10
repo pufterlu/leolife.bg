@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0d0d">
+  <title>LeoLife Bulgaria — Design 4: Street Activist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0d0d0d;
+      --ink:     #1a1a1a;
+      --white:   #f2f0ec;
+      --orange:  #e84c00;
+      --orange-lt: #ff6622;
+      --orange-pale: #ffede5;
+      --green:   #005431;
+      --green-lt: #00a363;
+      --green-pale: #e5f4ee;
+      --muted:   rgba(242,240,236,0.5);
+      --border:  #2e2e2e;
+      --border-light: #d4cfc8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--orange); color: var(--white);
+      padding: 0.5rem 1rem; border-radius: 0 0 0.5rem 0.5rem;
+      font-weight: 700; z-index: 1000; text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    *:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ===== Urgent banner ===== */
+    .urgent-banner {
+      background: var(--orange);
+      color: var(--white);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .urgent-banner a {
+      color: var(--white);
+      text-decoration: underline;
+      font-style: italic;
+    }
+    .urgent-banner a:hover { color: var(--black); }
+
+    /* ===== Header ===== */
+    header {
+      background: var(--black);
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-dot {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      align-items: center;
+    }
+    .nav-links a {
+      display: block;
+      padding: 0.4rem 0.9rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    .btn-orange {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border-radius: 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-orange:hover { background: var(--orange-lt); }
+    .btn-orange:active { transform: scale(0.98); }
+
+    /* ===== HERO — poster style ===== */
+    .hero {
+      background: var(--black);
+      border-bottom: 4px solid var(--orange);
+      padding: 0;
+      min-height: 90vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Diagonal slash background accent */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 42%;
+      height: 100%;
+      background: var(--ink);
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+      pointer-events: none;
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 2rem 3rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-main { padding: 3rem 1.5rem; }
+      .hero::before { display: none; }
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 2rem; height: 2px;
+      background: var(--orange);
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 11vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+
+    .hero-title .orange { color: var(--orange); }
+    .hero-title .outlined {
+      -webkit-text-stroke: 2px var(--white);
+      color: transparent;
+    }
+    .hero-title .outlined.orange-stroke {
+      -webkit-text-stroke: 2px var(--orange);
+      color: transparent;
+    }
+
+    .hero-stats-inline {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hi-stat {
+      display: flex;
+      flex-direction: column;
+    }
+    .hi-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--orange);
+      font-variant-numeric: tabular-nums;
+    }
+    .hi-stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .hero-body-text {
+      font-size: 1.1rem;
+      color: rgba(242,240,236,0.7);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      text-wrap: pretty;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost-orange {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--border);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      touch-action: manipulation;
+    }
+    .btn-ghost-orange:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* ===== Marquee / ticker ===== */
+    .ticker {
+      background: var(--orange);
+      overflow: hidden;
+      padding: 0.6rem 0;
+      border-top: 2px solid var(--black);
+    }
+
+    .ticker-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker-scroll 30s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-inner { animation: none; }
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 0 2rem;
+    }
+
+    .ticker-sep {
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== "CATS ARE DYING" impact section ===== */
+    .impact-section {
+      background: var(--white);
+      color: var(--black);
+      padding: 5rem 2rem;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .impact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .impact-headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+
+    .impact-headline .accent { color: var(--orange); }
+    .impact-headline .green { color: var(--green); }
+
+    .impact-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .impact-columns { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .impact-col p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #2a2a2a;
+    }
+    .impact-col p + p { margin-top: 1rem; }
+    .impact-col a { color: var(--orange); font-weight: 600; text-decoration: underline; }
+    .impact-col a:hover { color: var(--green); }
+
+    .fact-list {
+      list-style: none;
+      margin-top: 1.25rem;
+    }
+    .fact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 1rem;
+      color: #1a1a1a;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .fact-list li:last-child { border-bottom: none; }
+    .fact-list li::before {
+      content: '→';
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+
+    /* ===== Big quote / call to action ===== */
+    .manifesto-section {
+      background: var(--orange);
+      padding: 5rem 2rem;
+      text-align: center;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .manifesto-inner { max-width: 860px; margin: 0 auto; }
+
+    .manifesto-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+    }
+    .manifesto-text em {
+      font-style: italic;
+      color: var(--black);
+    }
+
+    .manifesto-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.25rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+    }
+    .btn-white:hover { background: var(--orange-pale); }
+    .btn-white:active { transform: scale(0.98); }
+
+    .btn-white-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.25rem;
+      border: 2px solid var(--white);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+    }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.12); }
+    .btn-white-outline:active { transform: scale(0.98); }
+
+    /* ===== How to Help — stacked list ===== */
+    .help-section {
+      background: var(--ink);
+      padding: 5rem 2rem;
+      border-bottom: 4px solid var(--border);
+    }
+
+    .help-inner { max-width: 1000px; margin: 0 auto; }
+
+    .section-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+      text-wrap: balance;
+    }
+    .section-heading .orange { color: var(--orange); }
+
+    .help-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .help-list-item {
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      border-radius: 0;
+    }
+    .help-list-item:last-child { border-bottom: none; }
+    .help-list-item:hover .hli-num { color: var(--orange); }
+    .help-list-item:hover .hli-arrow { transform: translateX(4px); color: var(--orange); }
+
+    .hli-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.75rem;
+      color: var(--border);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      transition: color 0.15s;
+    }
+
+    .hli-body { }
+    .hli-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .hli-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .hli-arrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--border);
+      transition: transform 0.2s, color 0.15s;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hli-arrow { transition: color 0.15s; }
+    }
+
+    /* ===== Progress ===== */
+    .progress-section {
+      background: var(--green);
+      padding: 4rem 2rem;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .progress-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .progress-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .progress-text h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      text-wrap: balance;
+    }
+
+    .progress-text p {
+      font-size: 1.05rem;
+      color: rgba(242,240,236,0.8);
+      line-height: 1.7;
+    }
+    .progress-text p + p { margin-top: 0.75rem; }
+    .progress-text a { color: var(--white); font-weight: 600; }
+
+    .progress-nums {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .pn-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 1.25rem;
+    }
+
+    .pn-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--white);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+
+    .pn-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(242,240,236,0.55);
+      margin-top: 0.3rem;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--black);
+      border-top: 4px solid var(--orange);
+      padding: 3.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .footer-brand h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .footer-brand .social-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .footer-brand .social-row a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .footer-brand .social-row a:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .footer-nav h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .footer-nav ul { list-style: none; }
+    .footer-nav li + li { margin-top: 0.5rem; }
+    .footer-nav a {
+      font-size: 0.9rem;
+      color: rgba(242,240,236,0.6);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-nav a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom a { color: var(--muted); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    .design-label {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      background: var(--orange);
+      color: var(--white);
+      padding: 0.4rem 0.8rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to Main Content</a>
+  <div class="design-label">Design 4 — Street Activist</div>
+
+  <!-- Urgent banner -->
+  <div role="banner" aria-label="Campaign alert">
+    <div class="urgent-banner">
+      23,053 street cats. Growing 85% every 2 years. &nbsp;<a href="#">Sign the petition →</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="#" class="logo-wordmark">
+        <span class="logo-dot" aria-hidden="true"></span>
+        LeoLife Bulgaria
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Take Action</a></li>
+        <li><a href="#">Donations</a></li>
+      </ul>
+      <a href="#" class="btn-orange">Sign Petition</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero: poster-style -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-main">
+        <div class="hero-label">Street cat crisis · Varna, Bulgaria</div>
+        <h1 class="hero-title" id="hero-heading">
+          <span class="orange">23,053</span><br>
+          <span class="outlined">Street</span><br>
+          Cats.
+        </h1>
+        <div class="hero-stats-inline" aria-label="Key statistics">
+          <div class="hi-stat">
+            <span class="hi-stat-num">+85%</span>
+            <span class="hi-stat-label">Every 2 years</span>
+          </div>
+          <div class="hi-stat">
+            <span class="hi-stat-num">2,008</span>
+            <span class="hi-stat-label">In 2016</span>
+          </div>
+          <div class="hi-stat">
+            <span class="hi-stat-num">1,000+</span>
+            <span class="hi-stat-label">Neutered in 2026</span>
+          </div>
+        </div>
+        <p class="hero-body-text">
+          Cats are dying of viruses, poisoning, and traffic accidents every day. The municipality has the legal obligation to act. We need a municipal mass neutering programme — now.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn-orange">Sign the Petition →</a>
+          <a href="#" class="btn-ghost-orange">Write to a Councillor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker / marquee -->
+    <div class="ticker" role="marquee" aria-label="Campaign messages">
+      <div class="ticker-inner" aria-hidden="true">
+        <span class="ticker-item">Mass Neutering Now <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">23,053 Street Cats <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TNR Works <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Every Vet Agrees <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">It's The Law <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Sign The Petition <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">LeoLife Bulgaria <span class="ticker-sep">✦</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="ticker-item">Mass Neutering Now <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">23,053 Street Cats <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">TNR Works <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Every Vet Agrees <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">It's The Law <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">Sign The Petition <span class="ticker-sep">✦</span></span>
+        <span class="ticker-item">LeoLife Bulgaria <span class="ticker-sep">✦</span></span>
+      </div>
+    </div>
+
+    <!-- Impact Section -->
+    <section class="impact-section" aria-labelledby="impact-heading">
+      <div class="impact-inner">
+        <h2 class="impact-headline" id="impact-heading">
+          Cats are dying.<br>The <span class="green">law</span> is on our <span class="accent">side.</span>
+        </h2>
+        <div class="impact-columns">
+          <div class="impact-col">
+            <p>
+              There are 23,053 street cats in Varna and the municipality estimates the population has been growing by <strong>85% every 2 years</strong>. Without a mass neutering programme, we will have more than 40,000 cats within 2 years.
+            </p>
+            <p>
+              Cats suffer and die from viruses, poisoning, and traffic accidents every day. There are not enough caretakers or resources to support so many animals. This is a street cat crisis.
+            </p>
+            <p>
+              In January 2026, the first campaign launched and neutered over 1,000 cats. A great start — but far short of what is needed to reverse population growth.
+            </p>
+          </div>
+          <div class="impact-col">
+            <ul class="fact-list">
+              <li>Under Art.&nbsp;40a(1) of the Animal Protection Act, Varna Municipality is <strong>legally required</strong> to run a mass neutering programme.</li>
+              <li>Every single one of the <strong>24 veterinary clinics</strong> we surveyed supports the programme.</li>
+              <li>TNR (trap-neuter-return) is an <strong>internationally recognised</strong> method proven to reduce street cat populations.</li>
+              <li>Neutered cats live <strong>significantly longer</strong> than intact street cats (Nutter, 2005).</li>
+              <li>There are <strong>only 2 options</strong>: mass euthanasia (illegal &amp; inhumane) or mass neutering (legal &amp; humane).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifesto CTA -->
+    <section class="manifesto-section" aria-labelledby="manifesto-heading">
+      <div class="manifesto-inner">
+        <p class="manifesto-text" id="manifesto-heading">
+          Tell Varna Municipality:<br><em>Mass Neutering Now.</em>
+        </p>
+        <p class="manifesto-sub">Your signature, your councillor letter, your voice — it all counts.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#" class="btn-white">Sign the Petition →</a>
+          <a href="#" class="btn-white-outline">Write to a Councillor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Help list -->
+    <section class="help-section" aria-labelledby="help-heading">
+      <div class="help-inner">
+        <h2 class="section-heading" id="help-heading">Take <span class="orange">Action</span></h2>
+        <ul class="help-list">
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">01</span>
+              <span class="hli-body">
+                <span class="hli-title">Sign Our Petition</span>
+                <span class="hli-desc">Demand a municipal mass neutering programme through our open petition.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">02</span>
+              <span class="hli-body">
+                <span class="hli-title">Write to a Councillor</span>
+                <span class="hli-desc">Contact your local Varna Municipal Council representative directly.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">03</span>
+              <span class="hli-body">
+                <span class="hli-title">Get a Cat Neutered</span>
+                <span class="hli-desc">Our step-by-step TNR guide helps you help a street cat right now.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">04</span>
+              <span class="hli-body">
+                <span class="hli-title">Adopt, Don't Shop</span>
+                <span class="hli-desc">Give a street cat a loving home. Don't buy — there are thousands waiting.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">05</span>
+              <span class="hli-body">
+                <span class="hli-title">Donate</span>
+                <span class="hli-desc">Support our advocacy and outreach work with any amount.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="help-list-item">
+              <span class="hli-num">06</span>
+              <span class="hli-body">
+                <span class="hli-title">Spread the Word</span>
+                <span class="hli-desc">Share this page. Every share puts more pressure on the municipality.</span>
+              </span>
+              <span class="hli-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section" aria-labelledby="progress-heading">
+      <div class="progress-inner">
+        <div class="progress-text">
+          <h2 id="progress-heading">Civil resistance works.</h2>
+          <p>In 2025, after years of advocacy, Varna Municipal Council approved a budget for a free street cat neutering campaign. Citizen demand was so high the budget was spent within 3 months — over 1,000 cats neutered.</p>
+          <p>We assisted the municipality in developing the plan and provided technical assistance to vets applying for the programme.</p>
+          <p style="margin-top: 0.75rem;"><a href="#">Read about our 2025 work →</a></p>
+        </div>
+        <div class="progress-nums">
+          <div class="pn-box">
+            <div class="pn-num">1,000+</div>
+            <div class="pn-label">Cats neutered in 2026 campaign</div>
+          </div>
+          <div class="pn-box">
+            <div class="pn-num">24/24</div>
+            <div class="pn-label">Vets who support the programme</div>
+          </div>
+          <div class="pn-box">
+            <div class="pn-num">3 mo.</div>
+            <div class="pn-label">Until campaign budget was spent</div>
+          </div>
+          <div class="pn-box">
+            <div class="pn-num">2023</div>
+            <div class="pn-label">Year LeoLife Bulgaria founded</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>LeoLife Bulgaria</h3>
+        <p>A Foundation for the public benefit, fighting for a municipal mass neutering programme for the street cats of Varna, Bulgaria.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/LeoLife-Bulgaria-61557787567126" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/leolife_bulgaria/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+          <a href="mailto:org@leolife.bg">Email</a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our work &amp; plans</a></li>
+          <li><a href="#">Cat counting</a></li>
+          <li><a href="#">2025 Summer Campaign</a></li>
+          <li><a href="#">Survey of vets</a></li>
+          <li><a href="#">Who we are</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Take Action</h4>
+        <ul>
+          <li><a href="#">Sign our petition</a></li>
+          <li><a href="#">Write to a councillor</a></li>
+          <li><a href="#">Get a cat neutered</a></li>
+          <li><a href="#">Adopt, don't shop</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>LeoLife Bulgaria — Foundation for the public benefit, NGO no. 207858224</span>
+      <a href="mailto:org@leolife.bg">org@leolife.bg</a>
+    </div>
+  </footer>
+</body>
+</html>
