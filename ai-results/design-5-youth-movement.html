@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff6600">
+  <title>LeoLife Bulgaria — Design 5: Youth Movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:    #ff6600;
+      --orange-dk: #cc4d00;
+      --orange-lt: #ff8533;
+      --orange-pale: #fff0e6;
+      --yellow:    #ffe566;
+      --black:     #111111;
+      --off-black: #1c1c1c;
+      --white:     #ffffff;
+      --off-white: #fffcf7;
+      --muted:     rgba(17,17,17,0.55);
+      --border:    rgba(17,17,17,0.15);
+      --green:     #005431;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--orange);
+      color: var(--black);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--black); color: var(--white);
+      padding: 0.5rem 1rem; border-radius: 0 0 0.5rem 0.5rem;
+      font-weight: 700; z-index: 1000; text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    *:focus-visible {
+      outline: 3px solid var(--black);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: var(--orange);
+      border-bottom: 3px solid var(--black);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-text-link {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-middle {
+      display: flex;
+      list-style: none;
+      gap: 0;
+    }
+    .nav-middle a {
+      display: block;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .nav-middle a:hover {
+      border-color: var(--black);
+      background: rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 768px) { .nav-middle { display: none; } }
+
+    .btn-black {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--black);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-black:hover { background: var(--off-black); }
+    .btn-black:active { transform: scale(0.98); }
+
+    /* ===== Hero — Fridays For Future style ===== */
+    .hero {
+      background: var(--orange);
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid var(--black);
+    }
+
+    /* Big textured circles as background decoration */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 80px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      border: 60px solid rgba(0,0,0,0.04);
+      pointer-events: none;
+    }
+
+    .hero-hashtag {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 700;
+      color: var(--black);
+      opacity: 0.6;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 10vw, 8.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      text-wrap: balance;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline .underline-word {
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 6px;
+      text-decoration-color: var(--black);
+    }
+
+    .hero-headline .box-word {
+      background: var(--black);
+      color: var(--orange);
+      padding: 0 0.15em;
+      display: inline-block;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(17,17,17,0.75);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-wrap: pretty;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-black-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--black);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.9rem 2.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+    }
+    .btn-black-lg:hover { background: var(--off-black); }
+    .btn-black-lg:active { transform: scale(0.98); }
+
+    .btn-outline-black-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--black);
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.9rem 2.25rem;
+      border-radius: 50px;
+      border: 3px solid var(--black);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+    }
+    .btn-outline-black-lg:hover { background: rgba(0,0,0,0.08); }
+    .btn-outline-black-lg:active { transform: scale(0.98); }
+
+    /* ===== Movement stats strip ===== */
+    .movement-strip {
+      background: var(--black);
+      color: var(--orange);
+      border-bottom: 3px solid var(--black);
+      padding: 2.5rem 2rem;
+    }
+
+    .movement-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .movement-grid { grid-template-columns: 1fr; }
+    }
+
+    .movement-stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .movement-stat-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,102,0,0.55);
+      margin-top: 0.4rem;
+    }
+
+    /* ===== Orange: info blocks ===== */
+    .info-blocks {
+      background: var(--off-white);
+      border-bottom: 3px solid var(--black);
+      padding: 5rem 2rem;
+    }
+
+    .info-blocks-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .ib-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .ib-header .mono-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .ib-header h2 {
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    .ib-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .ib-grid { grid-template-columns: 1fr; }
+    }
+
+    .ib-card {
+      background: var(--orange);
+      border: 3px solid var(--black);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .ib-card.dark {
+      background: var(--black);
+      color: var(--orange);
+    }
+
+    .ib-card.yellow {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .ib-card.white {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .ib-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .ib-card h3 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .ib-card.dark h3 { color: var(--orange); }
+
+    .ib-card p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      opacity: 0.85;
+    }
+
+    /* ===== Full-bleed CTA ===== */
+    .cta-section {
+      background: var(--yellow);
+      border-top: 3px solid var(--black);
+      border-bottom: 3px solid var(--black);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 700px; margin: 0 auto; }
+
+    .cta-section h2 {
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.03em;
+      color: var(--black);
+      text-wrap: balance;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(17,17,17,0.7);
+      margin-bottom: 2rem;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-orange-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--orange);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 3px solid var(--black);
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      touch-action: manipulation;
+    }
+    .btn-orange-pill:hover { background: var(--orange-lt); }
+    .btn-orange-pill:active { transform: scale(0.98); }
+
+    /* ===== Action list ===== */
+    .action-section {
+      background: var(--orange);
+      border-bottom: 3px solid var(--black);
+      padding: 5rem 2rem;
+    }
+
+    .action-section-inner { max-width: 960px; margin: 0 auto; }
+
+    .action-section h2 {
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 2.5rem;
+      text-wrap: balance;
+    }
+
+    .action-cards-alt {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .action-cards-alt { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .action-cards-alt { grid-template-columns: 1fr; }
+    }
+
+    .ac-card {
+      background: var(--black);
+      border: 3px solid var(--black);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--orange);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .ac-card:hover {
+      background: var(--off-black);
+      transform: translateY(-3px) rotate(-0.5deg);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ac-card:hover { transform: none; }
+    }
+
+    .ac-icon { font-size: 1.75rem; line-height: 1; }
+    .ac-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: var(--orange);
+    }
+    .ac-desc {
+      font-size: 0.85rem;
+      color: rgba(255,102,0,0.7);
+      line-height: 1.55;
+    }
+    .ac-cta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* ===== Story section ===== */
+    .story-section {
+      background: var(--off-white);
+      border-bottom: 3px solid var(--black);
+      padding: 5rem 2rem;
+    }
+
+    .story-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .mono-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .story-inner h2 {
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+      text-wrap: balance;
+    }
+
+    .story-inner p {
+      font-size: 1.05rem;
+      color: rgba(17,17,17,0.75);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .story-inner a {
+      color: var(--orange-dk);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .story-inner a:hover { color: var(--black); }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--black);
+      color: var(--orange);
+      border-top: 3px solid var(--black);
+      padding: 3.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .footer-brand h3 {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: rgba(255,102,0,0.55);
+      line-height: 1.65;
+    }
+
+    .footer-links-col h4 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,102,0,0.4);
+      margin-bottom: 0.75rem;
+    }
+    .footer-links-col ul { list-style: none; }
+    .footer-links-col li + li { margin-top: 0.4rem; }
+    .footer-links-col a {
+      font-size: 0.875rem;
+      color: rgba(255,102,0,0.65);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links-col a:hover { color: var(--orange); }
+
+    .footer-base {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,102,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,102,0,0.35);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-base a { color: rgba(255,102,0,0.35); text-decoration: none; }
+    .footer-base a:hover { color: var(--orange); }
+
+    .design-label {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      background: var(--black);
+      color: var(--orange);
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border: 2px solid var(--orange);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to Main Content</a>
+  <div class="design-label">Design 5 — Youth Movement</div>
+
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="#" class="logo-text-link">LeoLife_Bulgaria</a>
+      <ul class="nav-middle" role="list">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Take action!</a></li>
+        <li><a href="#">Donations</a></li>
+      </ul>
+      <a href="#" class="btn-black">Sign Petition →</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-hashtag">#MassNeuteringNow &nbsp;·&nbsp; Varna, Bulgaria</div>
+      <h1 class="hero-headline" id="hero-heading">
+        <span class="box-word">23,053</span><br>
+        street cats.<br>
+        <span class="underline-word">Act now.</span>
+      </h1>
+      <p class="hero-sub">
+        The population has grown 1050% in 8 years. We're demanding a municipal mass neutering programme for the street cats of Varna — because the law requires it, the vets support it, and the cats need it.
+      </p>
+      <div class="hero-btns">
+        <a href="#" class="btn-black-lg">Sign the Petition →</a>
+        <a href="#" class="btn-outline-black-lg">Learn more</a>
+      </div>
+    </section>
+
+    <!-- Movement stats -->
+    <section class="movement-strip" aria-label="Movement statistics">
+      <div class="movement-grid">
+        <div>
+          <div class="movement-stat-num">23,053</div>
+          <div class="movement-stat-label">Street cats in Varna (2024)</div>
+        </div>
+        <div>
+          <div class="movement-stat-num">+85%</div>
+          <div class="movement-stat-label">Population growth every 2 years</div>
+        </div>
+        <div>
+          <div class="movement-stat-num">1,000+</div>
+          <div class="movement-stat-label">Cats neutered in 2026 campaign</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info blocks -->
+    <section class="info-blocks" aria-labelledby="info-heading">
+      <div class="info-blocks-inner">
+        <div class="ib-header">
+          <span class="mono-label">// why this matters</span>
+          <h2 id="info-heading">The case for mass neutering</h2>
+        </div>
+        <div class="ib-grid">
+          <div class="ib-card dark">
+            <div class="ib-icon" aria-hidden="true">⚖️</div>
+            <h3>The Law Requires It</h3>
+            <p>Under Art.&nbsp;40a(1) of the Animal Protection Act, when street cat populations are observed to be growing, municipal councils must introduce mass neutering programmes. This is not a suggestion — it's a legal obligation.</p>
+          </div>
+          <div class="ib-card yellow">
+            <div class="ib-icon" aria-hidden="true">🩺</div>
+            <h3>Every Vet Agrees</h3>
+            <p>We surveyed 24 veterinary clinics in Varna Municipality. The result: every single vet supports a municipal mass neutering programme. The scientific consensus is unanimous.</p>
+          </div>
+          <div class="ib-card white">
+            <div class="ib-icon" aria-hidden="true">🌍</div>
+            <h3>Proven Around the World</h3>
+            <p>TNR (trap-neuter-return) is internationally recognized as the humane, effective method for managing street cat populations. Studies show neutered cats live significantly longer lives.</p>
+          </div>
+          <div class="ib-card">
+            <div class="ib-icon" aria-hidden="true">🐾</div>
+            <h3>This Is a Crisis</h3>
+            <p>Cats are dying of viruses, poisoning, and traffic accidents every day. Growing from 2,008 to 23,053 in 8 years — the population will exceed 40,000 within 2 years without intervention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-inner">
+        <h2 id="cta-heading">Add your voice.<br>Tell Varna Municipality to act.</h2>
+        <p>In 2025, the council approved its first campaign — and it worked. Now we need a sustained programme. Your signature counts.</p>
+        <div class="cta-btns">
+          <a href="#" class="btn-black-lg">Sign the Petition →</a>
+          <a href="#" class="btn-orange-pill">Write to a Councillor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action cards -->
+    <section class="action-section" aria-labelledby="action-heading">
+      <div class="action-section-inner">
+        <h2 id="action-heading">How to help</h2>
+        <div class="action-cards-alt">
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">✍️</span>
+            <span class="ac-title">Sign the Petition</span>
+            <p class="ac-desc">Demand a mass neutering programme through our open petition.</p>
+            <span class="ac-cta">Sign →</span>
+          </a>
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">📬</span>
+            <span class="ac-title">Write to a Councillor</span>
+            <p class="ac-desc">Send our template letter to your local municipal representative.</p>
+            <span class="ac-cta">Write →</span>
+          </a>
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">✂️</span>
+            <span class="ac-title">Get a Cat Neutered</span>
+            <p class="ac-desc">Our TNR step-by-step guide helps you help a street cat today.</p>
+            <span class="ac-cta">Read guide →</span>
+          </a>
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">🏡</span>
+            <span class="ac-title">Adopt, Don't Shop</span>
+            <p class="ac-desc">Give a home to a street cat that truly needs one.</p>
+            <span class="ac-cta">How to adopt →</span>
+          </a>
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">🤝</span>
+            <span class="ac-title">Volunteer</span>
+            <p class="ac-desc">Join the 2025 neutering campaign team as a volunteer.</p>
+            <span class="ac-cta">Join →</span>
+          </a>
+          <a href="#" class="ac-card">
+            <span class="ac-icon" aria-hidden="true">💚</span>
+            <span class="ac-title">Donate</span>
+            <p class="ac-desc">Support our advocacy work with any amount.</p>
+            <span class="ac-cta">Donate →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="story-section" aria-labelledby="story-heading">
+      <div class="story-inner">
+        <span class="mono-label">// our story</span>
+        <h2 id="story-heading">For Leo — the kitten who started it all</h2>
+        <p>
+          In July 2023, we met Leo: a 4-month-old kitten stumbling alone by the Armenian Church in Varna's old town. He had hydrocephalus — water in the brain. We stayed with him through the night and got him to a vet. A few months later, Leo passed away. His story sparked a fire in us.
+        </p>
+        <p>
+          The cat outline in our logo is Leo's head. LeoLife Bulgaria is for him — and for the thousands of cats like him who were born into a world that wasn't ready for them.
+        </p>
+        <p>
+          <a href="#">Read our full story →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>LeoLife_Bulgaria</h3>
+        <p>A Foundation for the public benefit fighting for humane management of street cats in Varna through mass neutering. NGO registry no. 207858224.</p>
+        <div style="display: flex; gap: 0.6rem; margin-top: 1rem;">
+          <a href="https://www.facebook.com/p/LeoLife-Bulgaria-61557787567126" target="_blank" rel="noopener noreferrer" style="color: rgba(255,102,0,0.5); text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,102,0,0.2); padding: 0.3rem 0.7rem; border-radius: 4px; transition: color 0.15s;" aria-label="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/leolife_bulgaria/" target="_blank" rel="noopener noreferrer" style="color: rgba(255,102,0,0.5); text-decoration: none; font-size: 0.8rem; border: 1px solid rgba(255,102,0,0.2); padding: 0.3rem 0.7rem; border-radius: 4px; transition: color 0.15s;" aria-label="Instagram">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our work &amp; plans</a></li>
+          <li><a href="#">Cat counting</a></li>
+          <li><a href="#">2025 Summer Campaign</a></li>
+          <li><a href="#">Survey of vets</a></li>
+          <li><a href="#">Who we are</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Take Action</h4>
+        <ul>
+          <li><a href="#">Sign our petition</a></li>
+          <li><a href="#">Write to a councillor</a></li>
+          <li><a href="#">Get a cat neutered</a></li>
+          <li><a href="#">Adopt, don't shop</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>LeoLife Bulgaria — Foundation for the public benefit, NGO no. 207858224</span>
+      <a href="mailto:org@leolife.bg">org@leolife.bg</a>
+    </div>
+  </footer>
+</body>
+</html>
