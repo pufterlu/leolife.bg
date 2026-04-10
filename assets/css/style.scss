@@ -141,12 +141,21 @@ body {
 
 .subnav-dropdown:hover .subnav-dropdown-content {display: block;}
 
-#logoContainer.collapse {
-  display: block;
+
+
+#logoContainer {
+  overflow: hidden;
 }
 
-#logoContainer.collapsing, #logoContainer.collapse.show {
-  display: none;
+/* On mobile: prevent Bootstrap from applying display:none at the end of collapse.
+   height:0 + overflow:hidden is visually identical but stays in layout flow,
+   so the header border never snaps when the transition completes. */
+@media (max-width: 767.98px) {
+  .navbarSupportedContent.collapse:not(.show):not(.collapsing) {
+    display: block !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
 }
 
 #logo {
@@ -157,8 +166,7 @@ body {
 
 #contactUsContainer {
   @media (max-width: 768px) {
-    margin-top: 1rem;
-    padding-bottom: 1rem;
+    margin-top: 0;
   }
 }
 

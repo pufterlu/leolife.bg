@@ -1,16 +1,44 @@
 (function () {
   var logo = document.getElementById('logoContainer');
-  // When the menu finishes collapsing, fade the logo in from invisible
-  logo.addEventListener('hidden.bs.collapse', function () {
-    logo.style.transition = 'none';
+  var toggler = document.querySelector('.custom-toggler');
+
+  function isMobile() {
+    return window.getComputedStyle(toggler).display !== 'none';
+  }
+
+  // Initialize: hide logo if mobile and menu is already open on load
+  logo.style.transition = 'none';
+  if (isMobile() && toggler.getAttribute('aria-expanded') === 'true') {
+    logo.style.height = '0';
     logo.style.opacity = '0';
-    logo.offsetHeight; // force reflow so snap to 0 is applied first
-    logo.style.transition = 'opacity 0.7s ease-in';
+  }
+
+  var hideHandled = false;
+
+  // Menu starts CLOSING: grow and fade logo in exactly in sync with Bootstrap's collapse animation
+  document.addEventListener('hide.bs.collapse', function (e) {
+    if (hideHandled || !e.target.classList.contains('navbarSupportedContent')) return;
+    hideHandled = true;
+
+    var naturalHeight = logo.scrollHeight; // correct even when height is 0 + overflow:hidden
+    logo.offsetHeight; // force reflow to commit current state
+    logo.style.transition = 'height 0.35s ease, opacity 0.5s ease';
+    logo.style.height = naturalHeight + 'px';
     logo.style.opacity = '1';
+
+    // After animation, release to natural/auto height so the element stays responsive
+    setTimeout(function () {
+      logo.style.transition = 'none';
+      logo.style.height = '';
+      hideHandled = false;
+    }, 400);
   });
-  // When the menu starts expanding, instantly hide the logo (no fade needed)
-  logo.addEventListener('show.bs.collapse', function () {
+
+  // Menu starts OPENING: instantly collapse logo (no animation)
+  document.addEventListener('show.bs.collapse', function (e) {
+    if (!e.target.classList.contains('navbarSupportedContent')) return;
     logo.style.transition = 'none';
-    logo.style.opacity = '';
+    logo.style.height = '0';
+    logo.style.opacity = '0';
   });
 })();
