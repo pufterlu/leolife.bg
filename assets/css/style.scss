@@ -67,6 +67,10 @@ body {
   padding: 1rem;
 }
 
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M8 8L24 24M24 8L8 24'/%3E%3C/svg%3E");
+}
+
 .page-header .nav-link {
   color: $header-text-color;
   font-size: 1.7rem;
