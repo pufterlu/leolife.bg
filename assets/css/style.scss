@@ -13,6 +13,7 @@ $default-font-weight: 400;
 
 /* ===== General styles ===== */
 
+
 body {
   font-family: "Roboto Condensed", sans-serif;
   font-optical-sizing: auto;
@@ -34,13 +35,8 @@ body {
 #petitionBannerContainer {
   background-color: black;
   color: white;
-  height: 7dvh;
-  @media (max-width: 768px) {
-    
-  }
-  @media (min-width: 768px) {
-    
-  }
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
 }
 
 #petitionBannerContainer a { color: $monochromatic-color; }
@@ -51,10 +47,6 @@ body {
   color: $header-text-color;
   text-align: center;
   background-color: $header-bg-color; 
-  
-  @media (min-width: 768px) {
-    height: 29dvh;
-  }
 }
 
 .monochromatic-thick-top-border {
@@ -181,6 +173,7 @@ body {
   height: 2.5rem;
 }
 
+
 /* ===== Footer styles ===== */
 #footerContainer {
   text-align: center;
@@ -255,9 +248,11 @@ h1, h2, h3 {
 .leading-container {
   background-color: $monochromatic-color;
   padding-bottom: 2rem;
-  
+}
+
+.leading-container {
   @media (min-width: 768px) {
-    height: 71dvh;
+    height: calc(100svh - var(--header-height, 0px));
   }
 }
 

@@ -44,7 +44,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="collapse navbar-collapse navbarSupportedContent col-2">
                         <ul class="navbar-nav nav-underline mx-auto">
                             <li class="nav-item">
@@ -195,9 +195,15 @@
             </div>
         </nav>
     </header>
+    <script>
+      document.documentElement.style.setProperty(
+        '--header-height',
+        document.querySelector('header.page-header').offsetHeight + 'px'
+      );
+    </script>
 
     <main id="content" class="main-content" role="main">
-        <div class="container-fluid p-0">
+        <div id="mainContentWrapper" class="container-fluid p-0">
             {{ content }}
         </div>
 
